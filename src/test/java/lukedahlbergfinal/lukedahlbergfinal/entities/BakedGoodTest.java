@@ -5,9 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-
 /**
- * This Java class represents the Baked Goods.
+ * This Java class tests the Baked Goods class.
  * @author ldahlberg
  */
 public class BakedGoodTest {
@@ -16,14 +15,19 @@ public class BakedGoodTest {
 	private Integer expectedInt = 1;
 	private Double expectedDouble = 1.00;
 	private String expectedString = "test";
+	private Category expectedCategory;
 	
 	@Before
 	public void setup() {
 		
 		bakedGood = new BakedGood();
+		expectedCategory = new Category();
 		
 	}
 	
+	/**
+	 * This test ensures that the BakedGood id getter and setter is functioning.
+	 */
 	@Test
 	public void testSetAndGetBakedGoodId(){
 		bakedGood.setBakedGoodId(1);
@@ -31,6 +35,9 @@ public class BakedGoodTest {
 		
 	}
 	
+	/**
+	 * This test ensures that the BakedGood name getter and setter is functioning.
+	 */
 	@Test
 	public void testSetAndGetName(){
 		
@@ -39,6 +46,9 @@ public class BakedGoodTest {
 		
 	}
 	
+	/**
+	 * This test ensures that the BakedGood cost getter and setter is functioning.
+	 */
 	@Test
 	public void testSetAndGetCost(){
 		
@@ -47,6 +57,9 @@ public class BakedGoodTest {
 		
 	}
 	
+	/**
+	 * This test ensures that the BakedGood vendor getter and setter is functioning.
+	 */
 	@Test
 	public void testSetAndGetVendorName(){
 		
@@ -55,12 +68,15 @@ public class BakedGoodTest {
 		
 	}
 	
-	/*@Test
+	/**
+	 * This test ensures that the BakedGood category getter and setter is functioning.
+	 */
+	@Test
 	public void testSetAndGetCategory(){
 		
-		bakedGood.setCategory("test");
-		assertEquals(expectedString,bakedGood.getCategory());
+		bakedGood.setCategory(expectedCategory);
+		assertEquals(expectedCategory,bakedGood.getCategory());
 		
-	}*/
+	}
 	
 }

@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * This Java class represents the Ingredients.
+ * This Java class tests the Ingredients class.
  * @author ldahlberg
  */
 public class IngredientTest {
@@ -23,13 +23,19 @@ public class IngredientTest {
 		
 	}
 	
+	/**
+	 * This test ensures that the IngredientID getter and setter is functioning.
+	 */
 	@Test
-	public void testSetAndGetBakedGoodId(){
+	public void testSetAndGetIngredientId(){
 		ingredient.setIngredientId(1);
 		assertEquals(expectedInt,ingredient.getIngredientId());
 		
 	}
 	
+	/**
+	 * This test ensures that the Ingredient name getter and setter is functioning.
+	 */
 	@Test
 	public void testSetAndGetName(){
 		
@@ -38,6 +44,9 @@ public class IngredientTest {
 		
 	}
 	
+	/**
+	 * This test ensures that the Ingredient cost getter and setter is functioning.
+	 */
 	@Test
 	public void testSetAndGetCost(){
 		
@@ -46,6 +55,9 @@ public class IngredientTest {
 		
 	}
 	
+	/**
+	 * This test ensures that the Ingredient measure getter and setter is functioning.
+	 */
 	@Test
 	public void testSetAndGetMeasure(){
 		

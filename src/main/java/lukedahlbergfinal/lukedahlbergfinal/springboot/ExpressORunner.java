@@ -3,8 +3,7 @@ package lukedahlbergfinal.lukedahlbergfinal.springboot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.orm.jpa.EntityScan;
-
-import lukedahlbergfinal.lukedahlbergfinal.entities.BakedGood;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * This Application allows the owner of a local coffee shop to create, view, update, and delete
@@ -13,7 +12,8 @@ import lukedahlbergfinal.lukedahlbergfinal.entities.BakedGood;
  *
  */
 @SpringBootApplication
-@EntityScan(basePackageClasses=BakedGood.class)
+@ComponentScan(basePackages="lukedahlbergfinal.lukedahlbergfinal.controllers")
+@EntityScan(basePackages="lukedahlbergfinal.lukedahlbergfinal.entities")
 public class ExpressORunner 
 {
     public static void main( String[] args ){
