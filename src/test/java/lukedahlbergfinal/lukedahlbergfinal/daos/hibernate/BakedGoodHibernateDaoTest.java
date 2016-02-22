@@ -18,7 +18,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import lukedahlbergfinal.lukedahlbergfinal.entities.BakedGood;
-import lukedahlbergfinal.lukedahlbergfinal.entities.BakedGood;
 
 /**
  * This class tests the Hibernate functionality for the BakedGood's Database Table

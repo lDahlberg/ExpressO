@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lukedahlbergfinal.lukedahlbergfinal.daos.BakedGoodDao;
 import lukedahlbergfinal.lukedahlbergfinal.entities.BakedGood;
 import lukedahlbergfinal.lukedahlbergfinal.services.BakedGoodService;
 
@@ -12,26 +13,15 @@ import lukedahlbergfinal.lukedahlbergfinal.services.BakedGoodService;
 public class BakedGoodServiceImpl implements BakedGoodService {
 
 	@Autowired
-	private BakedGoodService bakedGoodService;
+	private BakedGoodDao bakedGoodDao;
 
 	/**
-	 * Sets the bakedGoodService object
-	 * @param bakedGoodService
+	 * Sets the bakedGoodDao object
+	 * @param bakedGoodDao
 	 */
-	public void setBakedGoodService(BakedGoodService bakedGoodService) {
+	public void setBakedGoodDao(BakedGoodDao bakedGoodDao) {
 		
-		this.bakedGoodService = bakedGoodService;
-		
-	}
-
-	/**
-	 * Retrieve all BakedGoods from the application.
-	 * @return
-	 */
-	public List<BakedGood> getAllBakedGoods() {
-
-		List<BakedGood> bakedGoods = bakedGoodService.getAllBakedGoods();
-		return bakedGoods;
+		this.bakedGoodDao = bakedGoodDao;
 		
 	}
 
@@ -41,7 +31,7 @@ public class BakedGoodServiceImpl implements BakedGoodService {
 	 */
 	public void add(BakedGood bakedGood) {
 
-		bakedGoodService.add(bakedGood);
+		bakedGoodDao.add(bakedGood);
 		
 	}
 
@@ -51,7 +41,18 @@ public class BakedGoodServiceImpl implements BakedGoodService {
 	 * @param bakedGood
 	 */
 	public void update(BakedGood bakedGood) {
-		bakedGoodService.update(bakedGood);
+		bakedGoodDao.update(bakedGood);
+	}
+	
+	/**
+	 * Retrieve all BakedGoods from the application.
+	 * @return
+	 */
+	public List<BakedGood> getAllBakedGoods() {
+
+		List<BakedGood> bakedGoods = bakedGoodDao.getAllBakedGoods();
+		return bakedGoods;
+		
 	}
 
 	/**
@@ -61,7 +62,7 @@ public class BakedGoodServiceImpl implements BakedGoodService {
 	 * @return BakedGood
 	 */
 	public BakedGood getBakedGoodById(Integer bakedGoodId){
-		return bakedGoodService.getBakedGoodById(bakedGoodId);
+		return bakedGoodDao.getBakedGoodById(bakedGoodId);
 	}
 
 	/**
@@ -71,7 +72,7 @@ public class BakedGoodServiceImpl implements BakedGoodService {
 	 * @return BakedGood
 	 **/
 	public BakedGood getBakedGoodByName(String bakedGoodName) {
-		return bakedGoodService.getBakedGoodByName(bakedGoodName);
+		return bakedGoodDao.getBakedGoodByName(bakedGoodName);
 
 	}
 }
