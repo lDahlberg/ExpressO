@@ -25,23 +25,23 @@ public interface IngredientDao {
 	
 	/**
 	 * Retrieves all ingredients currently in storage.
-	 * @return
+	 * @return List<Ingredient>
 	 */
 	List<Ingredient> getAllIngredients();
 	
 	/**
 	 * Retrieve information about a single ingredient from storage with a matching ingredientId
 	 * @param ingredientId
-	 * @return
+	 * @return Ingredient
 	 */
-	Ingredient getByIngredientId(Integer ingredientId);
+	Ingredient getIngredientById(Integer ingredientId);
 
 	/**
 	 * Retrieves an ingredient with a matching ingredientName.
 	 * 
 	 * @param ingredientName
-	 * @return
+	 * @return Ingredient
 	 */
-	Ingredient getIngredientByIngredientName(String ingredientName);
+	Ingredient getIngredientByName(String ingredientName);
 	
 }
