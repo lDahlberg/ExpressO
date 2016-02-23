@@ -85,4 +85,40 @@ public class BakedGoodServiceImplTest {
 		verify(mockBakedGoodDao, times(1)).getBakedGoodByName("test");
 		
 	}
+	
+	/**
+	 * This test checks the BakedGoodHibernateDAO getAllAllergens functionality.
+	 */
+	@Test
+	public void testGetAllAllergens(){
+		
+		target.getAllAllergens();
+
+		verify(mockBakedGoodDao, times(1)).getAllAllergens();
+		
+	}
+	
+	/**
+	 * This test checks the BakedGoodHibernateDAO getAllCategories functionality.
+	 */
+	@Test
+	public void testGetAllCategories(){
+		
+		target.getAllCategories();
+
+		verify(mockBakedGoodDao, times(1)).getAllCategories();
+		
+	}
+	
+	/**
+	 * This test checks the BakedGoodHibernateDAO getAllAllergens functionality.
+	 */
+	@Test
+	public void testGetAllVendors(){
+		
+		target.getAllVendors();
+
+		verify(mockBakedGoodDao, times(1)).getAllVendors();
+		
+	}
 }

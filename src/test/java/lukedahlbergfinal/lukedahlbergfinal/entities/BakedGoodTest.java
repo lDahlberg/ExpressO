@@ -2,6 +2,9 @@ package lukedahlbergfinal.lukedahlbergfinal.entities;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,12 +19,16 @@ public class BakedGoodTest {
 	private Double expectedDouble = 1.00;
 	private String expectedString = "test";
 	private Category expectedCategory;
+	private Vendor expectedVendor;
+	private List<Allergen> expectedAllergen;
 	
 	@Before
 	public void setup() {
 		
 		bakedGood = new BakedGood();
 		expectedCategory = new Category();
+		expectedAllergen = new ArrayList<Allergen>();
+		expectedVendor = new Vendor();
 		
 	}
 	
@@ -63,8 +70,8 @@ public class BakedGoodTest {
 	@Test
 	public void testSetAndGetVendorName(){
 		
-		bakedGood.setVendorName("test");
-		assertEquals(expectedString,bakedGood.getVendorName());
+		bakedGood.setVendor(expectedVendor);
+		assertEquals(expectedVendor,bakedGood.getVendor());
 		
 	}
 	
@@ -76,6 +83,17 @@ public class BakedGoodTest {
 		
 		bakedGood.setCategory(expectedCategory);
 		assertEquals(expectedCategory,bakedGood.getCategory());
+		
+	}
+	
+	/**
+	 * This test ensures that the BakedGood category getter and setter is functioning.
+	 */
+	@Test
+	public void testSetAndGetAllergen(){
+		
+		bakedGood.setAllergen(expectedAllergen);
+		assertEquals(expectedAllergen,bakedGood.getAllergen());
 		
 	}
 	

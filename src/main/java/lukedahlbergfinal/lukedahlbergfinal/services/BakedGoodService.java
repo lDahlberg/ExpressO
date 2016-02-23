@@ -2,7 +2,10 @@ package lukedahlbergfinal.lukedahlbergfinal.services;
 
 import java.util.List;
 
+import lukedahlbergfinal.lukedahlbergfinal.entities.Allergen;
 import lukedahlbergfinal.lukedahlbergfinal.entities.BakedGood;
+import lukedahlbergfinal.lukedahlbergfinal.entities.Category;
+import lukedahlbergfinal.lukedahlbergfinal.entities.Vendor;
 
 /**
  * The methods declared in this interface provide WebService functionality for BakedGoods 
@@ -44,5 +47,23 @@ public interface BakedGoodService {
 		 * @return BakedGood
 		 */
 		BakedGood getBakedGoodByName(String bakedGoodName);
+		
+		/**
+		 * Retrieve all allergens
+		 * @return List<Allergen>
+		 */
+		List<Allergen> getAllAllergens();
+		
+		/**
+		 * Retrieves all categories currently in storage.
+		 * @return List<Category>
+		 */
+		List<Category> getAllCategories();
+		
+		/**
+		 * Retrieves all vendors currently in storage.
+		 * @return List<Vendor>
+		 */
+		List<Vendor> getAllVendors();
 
 }

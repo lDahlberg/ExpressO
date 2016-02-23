@@ -2,7 +2,10 @@ package lukedahlbergfinal.lukedahlbergfinal.daos;
 
 import java.util.List;
 
+import lukedahlbergfinal.lukedahlbergfinal.entities.Allergen;
 import lukedahlbergfinal.lukedahlbergfinal.entities.BakedGood;
+import lukedahlbergfinal.lukedahlbergfinal.entities.Category;
+import lukedahlbergfinal.lukedahlbergfinal.entities.Vendor;
 
 /**
  * The methods declared in this interface are to provide basic CRUD functionality related to bakedGood objects.
@@ -43,5 +46,23 @@ public interface BakedGoodDao {
 	 * @return BakedGood
 	 */
 	BakedGood getBakedGoodByName(String bakedGoodName);
+	
+	/**
+	 * Retrieves all allergens currently in storage.
+	 * @return List<Allergen>
+	 */
+	List<Allergen> getAllAllergens();
+	
+	/**
+	 * Retrieves all categories currently in storage.
+	 * @return List<Category>
+	 */
+	List<Category> getAllCategories();
+	
+	/**
+	 * Retrieves all vendors currently in storage.
+	 * @return List<Vendor>
+	 */
+	List<Vendor> getAllVendors();
 	
 }

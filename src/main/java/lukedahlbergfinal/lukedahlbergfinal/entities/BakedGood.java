@@ -1,10 +1,13 @@
 package lukedahlbergfinal.lukedahlbergfinal.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
@@ -17,8 +20,8 @@ public class BakedGood {
 	private int bakedGoodId;
 	private String name;
 	private Double cost;
-	private String vendorName;
-	private Allergen allergen;
+	private Vendor vendor;
+	private List<Allergen> allergen;
 	private Category category;
 	
 	/**
@@ -81,9 +84,11 @@ public class BakedGood {
 	/**
 	 * Generic getter for vendor name
 	 */
-	public String getVendorName() {
+	@ManyToOne(targetEntity = Vendor.class)
+	@JoinColumn(name="vendorid")
+	public Vendor getVendor() {
 		
-		return vendorName;
+		return vendor;
 		
 	}
 	
@@ -91,9 +96,9 @@ public class BakedGood {
 	 * Generic setter for coffee cost
 	 * @param cost
 	 */
-	public void setVendorName(String vendorName) {
+	public void setVendor(Vendor vendor) {
 		
-		this.vendorName = vendorName;
+		this.vendor = vendor;
 		
 	}
 	
@@ -118,9 +123,9 @@ public class BakedGood {
 	 * Generic getter for allergen
 	 */
 	//TODO: Add multiple allergens
-	@ManyToOne(targetEntity = Allergen.class)
+	@ManyToMany(targetEntity = Allergen.class)
 	@JoinColumn(name="allergenid")
-	public Allergen getAllergen() {
+	public List<Allergen> getAllergen() {
 		return allergen;
 	}
 
@@ -128,7 +133,7 @@ public class BakedGood {
 	 * Generic setter for allergen
 	 * @param allergen
 	 */
-	public void setAllergen(Allergen allergen) {
+	public void setAllergen(List<Allergen> allergen) {
 		this.allergen = allergen;
 	}
 }

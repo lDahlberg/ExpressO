@@ -9,7 +9,10 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Component;
 
 import lukedahlbergfinal.lukedahlbergfinal.daos.BakedGoodDao;
+import lukedahlbergfinal.lukedahlbergfinal.entities.Allergen;
 import lukedahlbergfinal.lukedahlbergfinal.entities.BakedGood;
+import lukedahlbergfinal.lukedahlbergfinal.entities.Category;
+import lukedahlbergfinal.lukedahlbergfinal.entities.Vendor;
 
 /**
  * The Hibernate functionality for the Baked Good Table
@@ -55,7 +58,7 @@ public class BakedGoodHibernateDao implements BakedGoodDao {
 
 		/**
 		 * Returns a list of all the rows in the BakedGood table.
-		 * @return List<EndUser>
+		 * @return List<Allergen>
 		 */
 		public List<BakedGood> getAllBakedGoods() {
 			
@@ -87,6 +90,39 @@ public class BakedGoodHibernateDao implements BakedGoodDao {
 				return em.createQuery("SELECT b FROM Ingredient b WHERE b.name = :bakedGoodName", BakedGood.class)
 						 .setParameter("bakedGoodName", bakedGoodName)
 						 .getSingleResult();
+			
+		}
+		
+		/**
+		 * Returns a list of all the rows in the Allergen table.
+		 * @return List<Allergen>
+		 */
+		public List<Allergen> getAllAllergens() {
+			
+				return em.createQuery("SELECT a FROM Allergen a", Allergen.class).
+						getResultList();
+			
+		}
+		
+		/**
+		 * Returns a list of all the rows in the Category table.
+		 * @return List<Category>
+		 */
+		public List<Category> getAllCategories() {
+			
+				return em.createQuery("SELECT c FROM Category c", Category.class).
+						getResultList();
+			
+		}
+		
+		/**
+		 * Returns a list of all the rows in the Vendor table.
+		 * @return List<Vendor>
+		 */
+		public List<Vendor> getAllVendors() {
+			
+				return em.createQuery("SELECT v FROM Vendor v", Vendor.class).
+						getResultList();
 			
 		}
 }

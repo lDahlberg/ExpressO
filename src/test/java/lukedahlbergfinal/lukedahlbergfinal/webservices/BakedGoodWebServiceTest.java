@@ -73,4 +73,40 @@ public class BakedGoodWebServiceTest {
 		target.update(mockBakedGood);
 		verify(mockBakedGoodService, times(1)).update(mockBakedGood);	
 	}
+	
+	/**
+	 * This test checks the BakedGoodWebService getAllAllergens functionality.
+	 */
+	@Test
+	public void testGetAllAllergens(){
+		
+		target.getAllAllergens();
+
+		verify(mockBakedGoodService, times(1)).getAllAllergens();
+		
+	}
+	
+	/**
+	 * This test checks the BakedGoodWebService getAllCategories functionality.
+	 */
+	@Test
+	public void testGetAllCategories(){
+		
+		target.getAllCategories();
+
+		verify(mockBakedGoodService, times(1)).getAllCategories();
+		
+	}
+
+	/**
+	 * This test checks the BakedGoodWebService getAllVendors functionality.
+	 */
+	@Test
+	public void testGetAllVendors(){
+		
+		target.getAllVendors();
+
+		verify(mockBakedGoodService, times(1)).getAllVendors();
+		
+	}
 }

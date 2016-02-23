@@ -17,7 +17,10 @@ import javax.persistence.TypedQuery;
 import org.junit.Before;
 import org.junit.Test;
 
+import lukedahlbergfinal.lukedahlbergfinal.entities.Allergen;
 import lukedahlbergfinal.lukedahlbergfinal.entities.BakedGood;
+import lukedahlbergfinal.lukedahlbergfinal.entities.Category;
+import lukedahlbergfinal.lukedahlbergfinal.entities.Vendor;
 
 /**
  * This class tests the Hibernate functionality for the BakedGood's Database Table
@@ -107,6 +110,63 @@ public class BakedGoodHibernateDaoTest {
 		 		 
 		target.getBakedGoodByName("test");
 		verify(mockTypedQuery, times(1)).setParameter(eq("bakedGoodName"), eq("test"));
+		
+	}
+	
+	/**
+	 * This test checks the BakedGoodHibernateDAO getAllAllergens functionality.
+	 */
+	@Test
+	public void testGetAllAllergens(){
+		
+		List<Allergen> expected = new ArrayList();
+
+		TypedQuery<Allergen> mockTypedQuery = mock(TypedQuery.class);
+
+		when(mockEm.createQuery(anyString(), eq(Allergen.class))).thenReturn(mockTypedQuery);
+		when(mockTypedQuery.getResultList()).thenReturn(expected);
+
+		target.getAllAllergens();
+
+		verify(mockTypedQuery, times(1)).getResultList();
+		
+	}
+	
+	/**
+	 * This test checks the BakedGoodHibernateDAO getAllCategories functionality.
+	 */
+	@Test
+	public void testGetAllCategories(){
+		
+		List<Category> expected = new ArrayList();
+
+		TypedQuery<Category> mockTypedQuery = mock(TypedQuery.class);
+
+		when(mockEm.createQuery(anyString(), eq(Category.class))).thenReturn(mockTypedQuery);
+		when(mockTypedQuery.getResultList()).thenReturn(expected);
+
+		target.getAllCategories();
+
+		verify(mockTypedQuery, times(1)).getResultList();
+		
+	}
+	
+	/**
+	 * This test checks the BakedGoodHibernateDAO getAllVendors functionality.
+	 */
+	@Test
+	public void testGetAllVendors(){
+		
+		List<Vendor> expected = new ArrayList();
+
+		TypedQuery<Vendor> mockTypedQuery = mock(TypedQuery.class);
+
+		when(mockEm.createQuery(anyString(), eq(Vendor.class))).thenReturn(mockTypedQuery);
+		when(mockTypedQuery.getResultList()).thenReturn(expected);
+
+		target.getAllVendors();
+
+		verify(mockTypedQuery, times(1)).getResultList();
 		
 	}
 }

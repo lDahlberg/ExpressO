@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import lukedahlbergfinal.lukedahlbergfinal.entities.Allergen;
 import lukedahlbergfinal.lukedahlbergfinal.entities.BakedGood;
+import lukedahlbergfinal.lukedahlbergfinal.entities.Category;
+import lukedahlbergfinal.lukedahlbergfinal.entities.Vendor;
 import lukedahlbergfinal.lukedahlbergfinal.services.BakedGoodService;
 
 /**
@@ -68,4 +71,31 @@ public class BakedGoodWebService {
 	}
 	
 	//TODO: Add Delete
+	
+	/**
+	 * Returns a list of all the Allergens.
+	 * @return List<Allergen>
+	 */
+	@RequestMapping(value="/allergens", method = RequestMethod.GET)
+	public List<Allergen> getAllAllergens(){
+		return bakedGoodService.getAllAllergens();
+	}
+	
+	/**
+	 * Returns a list of all the Categories.
+	 * @return List<Category>
+	 */
+	@RequestMapping(value="/categories", method = RequestMethod.GET)
+	public List<Category> getAllCategories(){
+		return bakedGoodService.getAllCategories();
+	}
+	
+	/**
+	 * Returns a list of all the Vendors.
+	 * @return List<Vendor>
+	 */
+	@RequestMapping(value="/vendors", method = RequestMethod.GET)
+	public List<Vendor> getAllVendors(){
+		return bakedGoodService.getAllVendors();
+	}
 }

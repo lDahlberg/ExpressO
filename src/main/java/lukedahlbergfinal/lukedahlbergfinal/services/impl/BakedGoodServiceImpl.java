@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lukedahlbergfinal.lukedahlbergfinal.daos.BakedGoodDao;
+import lukedahlbergfinal.lukedahlbergfinal.entities.Allergen;
 import lukedahlbergfinal.lukedahlbergfinal.entities.BakedGood;
+import lukedahlbergfinal.lukedahlbergfinal.entities.Category;
+import lukedahlbergfinal.lukedahlbergfinal.entities.Vendor;
 import lukedahlbergfinal.lukedahlbergfinal.services.BakedGoodService;
 
 @Service
@@ -75,4 +78,38 @@ public class BakedGoodServiceImpl implements BakedGoodService {
 		return bakedGoodDao.getBakedGoodByName(bakedGoodName);
 
 	}
+	
+	/**
+	 * Retrieve all BakedGoods from the application.
+	 * @return
+	 */
+	public List<Allergen> getAllAllergens() {
+
+		List<Allergen> allergens = bakedGoodDao.getAllAllergens();
+		return allergens;
+		
+	}
+	
+	/**
+	 * Retrieve all Categories from the application.
+	 * @return
+	 */
+	public List<Category> getAllCategories() {
+
+		List<Category> categories = bakedGoodDao.getAllCategories();
+		return categories;
+		
+	}
+	
+	/**
+	 * Retrieve all Vendors from the application.
+	 * @return
+	 */
+	public List<Vendor> getAllVendors() {
+
+		List<Vendor> vendor = bakedGoodDao.getAllVendors();
+		return vendor;
+		
+	}
+
 }
