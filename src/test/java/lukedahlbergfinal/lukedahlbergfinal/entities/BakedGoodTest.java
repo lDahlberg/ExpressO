@@ -2,9 +2,6 @@ package lukedahlbergfinal.lukedahlbergfinal.entities;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,14 +17,14 @@ public class BakedGoodTest {
 	private String expectedString = "test";
 	private Category expectedCategory;
 	private Vendor expectedVendor;
-	private List<Allergen> expectedAllergen;
+	private Allergen expectedAllergen;
 	
 	@Before
 	public void setup() {
 		
 		bakedGood = new BakedGood();
 		expectedCategory = new Category();
-		expectedAllergen = new ArrayList<Allergen>();
+		expectedAllergen = new Allergen();
 		expectedVendor = new Vendor();
 		
 	}

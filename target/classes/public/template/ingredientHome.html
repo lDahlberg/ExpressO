@@ -1,3 +1,6 @@
 <h1>Ingredients List</h1>
-<button ui-sref="ingredientHome.newIngredient">Add New Ingredient</button>
+<div ng-repeat="ingredient in ingredients">
+	<a ui-sref="ingredientDetailView">{{ingredient.name}}</a>
+</div>
+<button ui-sref="newIngredient">Add New Ingredient</button>
 <ui-view></ui-view>
