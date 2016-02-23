@@ -18,6 +18,7 @@ public class BakedGood {
 	private String name;
 	private Double cost;
 	private String vendorName;
+	private Allergen allergen;
 	private Category category;
 	
 	/**
@@ -111,5 +112,23 @@ public class BakedGood {
 	 */
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	/**
+	 * Generic getter for allergen
+	 */
+	//TODO: Add multiple allergens
+	@ManyToOne(targetEntity = Allergen.class)
+	@JoinColumn(name="allergenid")
+	public Allergen getAllergen() {
+		return allergen;
+	}
+
+	/**
+	 * Generic setter for allergen
+	 * @param allergen
+	 */
+	public void setAllergen(Allergen allergen) {
+		this.allergen = allergen;
 	}
 }

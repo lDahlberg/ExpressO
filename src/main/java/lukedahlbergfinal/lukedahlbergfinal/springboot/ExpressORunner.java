@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
  *
  */
 @SpringBootApplication
-@ComponentScan(basePackages="lukedahlbergfinal.lukedahlbergfinal.controllers")
+@ComponentScan({"lukedahlbergfinal.lukedahlbergfinal.controllers", "lukedahlbergfinal.lukedahlbergfinal.webservices", "lukedahlbergfinal.lukedahlbergfinal.services.impl", "lukedahlbergfinal.lukedahlbergfinal.daos"})
 @EntityScan(basePackages="lukedahlbergfinal.lukedahlbergfinal.entities")
 public class ExpressORunner 
 {
