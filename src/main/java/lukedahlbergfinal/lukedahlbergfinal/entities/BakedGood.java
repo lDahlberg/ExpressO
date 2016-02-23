@@ -1,14 +1,14 @@
 package lukedahlbergfinal.lukedahlbergfinal.entities;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  * This Java class represents the Baked Goods.
@@ -20,8 +20,9 @@ public class BakedGood {
 	private int bakedGoodId;
 	private String name;
 	private Double cost;
-	private String vendorName;
-	private Collection<Category> category;
+	private Vendor vendor;
+	private List<Allergen> allergen;
+	private Category category;
 	
 	/**
 	 * Generic getter for drinkId
@@ -83,9 +84,11 @@ public class BakedGood {
 	/**
 	 * Generic getter for vendor name
 	 */
-	public String getVendorName() {
+	@ManyToOne(targetEntity = Vendor.class)
+	@JoinColumn(name="vendorid")
+	public Vendor getVendor() {
 		
-		return vendorName;
+		return vendor;
 		
 	}
 	
@@ -93,18 +96,18 @@ public class BakedGood {
 	 * Generic setter for coffee cost
 	 * @param cost
 	 */
-	public void setVendorName(String vendorName) {
+	public void setVendor(Vendor vendor) {
 		
-		this.vendorName = vendorName;
+		this.vendor = vendor;
 		
 	}
 	
 	/**
 	 * Generic getter for category
 	 */
-	@OneToMany(targetEntity = Category.class)
+	@ManyToOne(targetEntity = Category.class)
 	@JoinColumn(name="categoryid")
-	public Collection<Category> getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
@@ -112,7 +115,25 @@ public class BakedGood {
 	 * Generic setter for category
 	 * @param category
 	 */
-	public void setCategory(Collection<Category> category) {
+	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	/**
+	 * Generic getter for allergen
+	 */
+	//TODO: Add multiple allergens
+	@ManyToMany(targetEntity = Allergen.class)
+	@JoinColumn(name="allergenid")
+	public List<Allergen> getAllergen() {
+		return allergen;
+	}
+
+	/**
+	 * Generic setter for allergen
+	 * @param allergen
+	 */
+	public void setAllergen(List<Allergen> allergen) {
+		this.allergen = allergen;
 	}
 }
