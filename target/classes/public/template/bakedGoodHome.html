@@ -1,4 +1,7 @@
 <h1>Baked Goods List</h1>
-<button ui-sref="bakedGoodHome.newBakedGood">Add New Baked Good</button>
+<div ng-repeat="bakedGood in bakedGoods">
+	<a ui-sref="bakedGoodDetailView">{{bakedGood.name}}</a>
+</div>
+<button ui-sref="newBakedGood">Add New Baked Good</button>
 <ui-view></ui-view>
 

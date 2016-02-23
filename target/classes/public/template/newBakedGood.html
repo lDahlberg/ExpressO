@@ -1,16 +1,24 @@
 <h1>New Baked Good</h1>
 
+<form name="bakedGoodForm" ng-submit="submitBakedGood(bakedGoodData)">
 <label for="bakedGoodName">Name: </label>
-<input id="bakedGoodName" name="bakedGoodName" type="text" ng-model="bakedGoodName"/>
+<input id="bakedGoodName" name="bakedGoodName" type="text" ng-model="bakedGoodData.name"/>
 
 <label for="bakedGoodCost">Cost: </label>
-<input id="bakedGoodCost" name="bakedGoodCost" type="currency" ng-model="bakedGoodCost"/>
+<input id="bakedGoodCost" name="bakedGoodCost" type="number" ng-model="bakedGoodData.cost"/>
 
-<label for="bakedGoodVendor">Vendor: </label>
-<input id="bakedGoodVendor" name="bakedGoodVendor" type="text" ng-model="bakedGoodVendor"/>
+<select ng-model="bakedGoodData.vendor" ng-options="vendor.name for vendor in vendors">
+    <option value="">Select Vendor</option>
+</select>
 
-<label for="bakedGoodAllergen">Allergen: </label>
-<input id="bakedGoodAllergen" name="bakedGoodAllergen" type="text" ng-model="bakedGoodAllergen"/>
+<select ng-model="bakedGoodData.allergen" ng-options="allergen.name for allergen in allergens">
+    <option value="">Select Allergen</option>
+</select>
 
-<label for="bakedGoodCategory">Category: </label>
-<input id="bakedGoodCategory" name="bakedGoodCategory" type="text" ng-model="bakedGoodCategory"/>
+<select ng-model="bakedGoodData.category" ng-options="category.name for category in categories">
+    <option value="">Select Category</option>
+</select>
+
+<button type="submit">Submit Baked Good</button>
+
+</form>

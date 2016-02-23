@@ -48,6 +48,7 @@ public class BakedGoodWebService {
      */
 	@RequestMapping(value="/bakedgoods", method=RequestMethod.POST)
 	public void add(@RequestBody BakedGood bakedGood){
+		System.out.print(bakedGood);
 		bakedGoodService.add(bakedGood);
 	} 
 	

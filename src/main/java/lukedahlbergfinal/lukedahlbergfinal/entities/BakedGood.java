@@ -1,19 +1,17 @@
 package lukedahlbergfinal.lukedahlbergfinal.entities;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
  * This Java class represents the Baked Goods.
  * @author ldahlberg
  */
+//TODO: Change Allergen to Many To Many
 @Entity
 public class BakedGood {
 
@@ -21,7 +19,7 @@ public class BakedGood {
 	private String name;
 	private Double cost;
 	private Vendor vendor;
-	private List<Allergen> allergen;
+	private Allergen allergen;
 	private Category category;
 	
 	/**
@@ -123,9 +121,9 @@ public class BakedGood {
 	 * Generic getter for allergen
 	 */
 	//TODO: Add multiple allergens
-	@ManyToMany(targetEntity = Allergen.class)
+	@ManyToOne(targetEntity = Allergen.class)
 	@JoinColumn(name="allergenid")
-	public List<Allergen> getAllergen() {
+	public Allergen getAllergen() {
 		return allergen;
 	}
 
@@ -133,7 +131,7 @@ public class BakedGood {
 	 * Generic setter for allergen
 	 * @param allergen
 	 */
-	public void setAllergen(List<Allergen> allergen) {
+	public void setAllergen(Allergen allergen) {
 		this.allergen = allergen;
 	}
 }

@@ -1,10 +1,17 @@
 <h1>Add New Ingredient</h1>
 
+<form name="ingredientForm" ng-submit="submitIngredient(ingredientData)">
+
 <label for="ingredientName">Name: </label>
-<input id="ingredientName" name="ingredientName" type="text" ng-model="ingredientName"/>
+<input id="ingredientName" name="ingredientName" type="text" ng-model="ingredientData.name"/>
 
 <label for="ingredientCost">Cost: </label>
-<input id="ingredientCost" name="ingredientCost" type="currency" ng-model="ingredientCost"/>
+<input id="ingredientCost" name="ingredientCost" type="number" ng-model="ingredientData.cost"/>
 
 <label for="ingredientMeasure">Measurement (in oz): </label>
-<input id="ingredientMeasure" name="ingredientMeasure" type="number" ng-model="ingredientMeasure"/>
+<input id="ingredientMeasure" name="ingredientMeasure" type="number" ng-model="ingredientData.measure"/>
+
+<button type="submit">Submit Ingredient</button>
+
+</form>
+

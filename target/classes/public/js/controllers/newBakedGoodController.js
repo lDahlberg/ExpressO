@@ -1,13 +1,25 @@
-angular.module('expressOApp').controller('bakedGoodHomeController', ['$scope', '$state', '$http', function($scope, $state, $http){
-	$http.get('/allergens').then(function(data){
-		console.log(data);
+angular.module('expressOApp').controller('newBakedGoodController', ['$scope', '$state', '$http', function($scope, $state, $http){
+	$http.get('/allergens').then(function(allergenData){
+		$scope.allergens = allergenData.data;
 	});
 	
-	$http.get('/categories').then(function(data){
-		console.log(data);
+	$http.get('/categories').then(function(categoryData){
+		$scope.categories = categoryData.data;
 	});
 	
-	$http.get('/vendors').then(function(data){
-		console.log(data);
+	$http.get('/vendors').then(function(vendorData){
+		$scope.vendors = vendorData.data;
 	});
+	
+	$scope.submitBakedGood = function(bakedGoodData) {
+        console.log(bakedGoodData);
+		$http.post("bakedgoods", bakedGoodData)
+		.success(function(data, status, headers, config){
+	    	console.log("success");
+	    	state.go("bakedGoodHome");
+	    })
+	    .error(function(data, status, headers, config){
+	    	console.log("failure");
+	    });
+	}	
 }]);

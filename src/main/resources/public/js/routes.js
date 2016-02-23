@@ -15,14 +15,24 @@ angular.module('expressOApp').config(['$stateProvider', '$urlRouterProvider', fu
 			templateUrl: 'template/ingredientHome.html',
 			controller: 'ingredientHomeController'
 		})
-		.state("bakedGoodHome.newBakedGood", {
+		.state("newBakedGood", {
 			url: '/newBakedGood',
 			templateUrl: 'template/newBakedGood.html',
-			controller: 'newBakedGoodController'
+			controller: 'newBakedGoodController',
 		})
-		.state("ingredientHome.newIngredient", {
+		.state("newIngredient", {
 			url: '/newIngredient',
 			templateUrl: 'template/newIngredient.html',
 			controller: 'newIngredientController'
+		})
+		.state("bakedGoodDetailView", {
+			url: '/bakedGoodDetail',
+			templateUrl: 'template/bakedGoodDetailView.html',
+			controller: 'bakedGoodDetailViewController'
+		})
+		.state("ingredientDetailView", {
+			url: '/ingredientDetail',
+			templateUrl: 'template/ingredientDetailView.html',
+			controller: 'ingredientDetailViewController'
 		});
 }]);
