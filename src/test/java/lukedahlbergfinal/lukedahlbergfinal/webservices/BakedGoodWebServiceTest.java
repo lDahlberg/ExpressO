@@ -75,6 +75,15 @@ public class BakedGoodWebServiceTest {
 	}
 	
 	/**
+	 * This test checks the BakedGoodWebService delete functionality.
+	 */
+	@Test
+	public void testDelete(){	
+		target.delete(1);
+		verify(mockBakedGoodService, times(1)).delete(1);	
+	}
+	
+	/**
 	 * This test checks the BakedGoodWebService getAllAllergens functionality.
 	 */
 	@Test

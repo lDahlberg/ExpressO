@@ -14,24 +14,12 @@ import org.junit.Test;
 public class RecipeTest {
 
 	private Recipe recipe;
-	private Integer expectedInt = 1;
 	private String expectedString = "test";
 	
 	@Before
 	public void setup() {
 		
 		recipe = new Recipe();
-		
-	}
-	
-	/**
-	 * This test ensures that the Recipe id getter and setter is functioning.
-	 */
-	@Test
-	public void testSetAndGetRecipeId(){
-		
-		recipe.setRecipeId(expectedInt);
-		assertEquals(expectedInt,recipe.getRecipeId());
 		
 	}
 	

@@ -5,7 +5,7 @@ import java.util.List;
 import lukedahlbergfinal.lukedahlbergfinal.entities.Ingredient;
 
 /**
- * The methods declared in this interface are to provide basic CRUD functionality related to ingredient objects.
+ * The methods declared in this interface provide basic CRUD functionality related to ingredient objects.
  * @author lDahlberg
  *
  */
@@ -22,6 +22,12 @@ public interface IngredientDao {
 	 * @param ingredient
 	 */
 	void update(Ingredient ingredient);
+	
+	/**
+	 * Deletes the Ingredient in storage by searching for its parameter:
+	 * @param ingredientId
+	 */
+	void delete(Integer ingredientId);
 	
 	/**
 	 * Retrieves all ingredients currently in storage.

@@ -17,6 +17,7 @@ import javax.persistence.TypedQuery;
 import org.junit.Before;
 import org.junit.Test;
 
+import lukedahlbergfinal.lukedahlbergfinal.entities.BakedGood;
 import lukedahlbergfinal.lukedahlbergfinal.entities.Ingredient;
 
 /**
@@ -59,6 +60,22 @@ public class IngredientHibernateDaoTest {
 		target.update(mockIngredient);
 		verify(mockEm, times(1)).merge(mockIngredient);	
 		
+	}
+	
+	/**
+	 * This test checks the BakedGoodHibernateDAO delete functionality.
+	 */
+	@Test
+	public void testDelete(){
+		
+		TypedQuery<Ingredient> mockTypedQuery = mock(TypedQuery.class);
+
+		when(mockEm.createQuery(anyString(), eq(Ingredient.class))).thenReturn(mockTypedQuery);
+		when(mockTypedQuery.setParameter(anyString(), anyInt())).thenReturn(mockTypedQuery);
+		when(target.getIngredientById(1)).thenReturn(mockIngredient);
+		
+		target.delete(1);
+		verify(mockEm, times(1)).remove(mockIngredient);	
 	}
 	
 	/**

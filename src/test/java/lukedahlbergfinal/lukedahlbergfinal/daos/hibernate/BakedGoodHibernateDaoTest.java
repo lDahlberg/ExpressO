@@ -63,6 +63,22 @@ public class BakedGoodHibernateDaoTest {
 	}
 	
 	/**
+	 * This test checks the BakedGoodHibernateDAO delete functionality.
+	 */
+	@Test
+	public void testDelete(){
+		
+		TypedQuery<BakedGood> mockTypedQuery = mock(TypedQuery.class);
+
+		when(mockEm.createQuery(anyString(), eq(BakedGood.class))).thenReturn(mockTypedQuery);
+		when(mockTypedQuery.setParameter(anyString(), anyInt())).thenReturn(mockTypedQuery);
+		when(target.getBakedGoodById(1)).thenReturn(mockBakedGood);
+		
+		target.delete(1);
+		verify(mockEm, times(1)).remove(mockBakedGood);	
+	}
+	
+	/**
 	 * This test checks the BakedGoodHibernateDAO getAllBakedGoods functionality.
 	 */
 	@Test

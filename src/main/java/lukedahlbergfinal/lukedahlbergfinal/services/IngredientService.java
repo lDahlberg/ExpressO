@@ -24,6 +24,12 @@ public interface IngredientService {
 		void update(Ingredient ingredient);
 
 		/**
+		 * Deletes the Ingredient in storage by searching for its parameter:
+		 * @param ingredientId
+		 */
+		void delete(Integer ingredientId);
+		
+		/**
 		 * Retrieve all ingredients from the application.
 		 * @return List<Ingredient>
 		 */

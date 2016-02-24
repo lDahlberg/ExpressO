@@ -45,6 +45,14 @@ public class IngredientServiceImpl implements IngredientService {
 	}
 	
 	/**
+	 * Delete an existing Ingredient by referencing its parameter:
+	 * @parameter: ingredientId
+	 */
+	public void delete(Integer ingredientId) {
+		ingredientDao.delete(ingredientId);
+	}
+	
+	/**
 	 * Retrieve all Ingredients from the application.
 	 * @return
 	 */

@@ -49,6 +49,15 @@ public class BakedGoodServiceImplTest {
 		target.update(mockBakedGood);
 		verify(mockBakedGoodDao, times(1)).update(mockBakedGood);	
 	}
+	
+	/**
+	 * This test checks the BakedGoodHibernateDAO delete functionality.
+	 */
+	@Test
+	public void testDelete(){	
+		target.delete(1);
+		verify(mockBakedGoodDao, times(1)).delete(1);	
+	}
 
 	/**
 	 * This test checks the BakedGoodHibernateDAO getAllBakedGoods functionality.

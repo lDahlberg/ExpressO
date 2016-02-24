@@ -27,6 +27,12 @@ public interface BakedGoodDao {
 	void update(BakedGood bakedGood);
 	
 	/**
+	 * Deletes the BakedGood in storage by searching for its parameter:
+	 * @param bakedGoodId
+	 */
+	void delete(Integer bakedGoodId);
+	
+	/**
 	 * Retrieves all bakedGoods currently in storage.
 	 * @return all BakedGoods
 	 */

@@ -54,6 +54,18 @@ public class IngredientHibernateDao implements IngredientDao {
 		}
 		
 		/**
+		 * Deletes a row from the Ingredient table corresponding to the 
+		 * passed-in parameter:
+		 * @param ingredientId
+		 */
+		public void delete(Integer ingredientId) {
+			
+			Ingredient ingredient = getIngredientById(ingredientId);
+			em.remove(ingredient);
+			
+		}
+		
+		/**
 		 * Returns a list of all the rows in the EndUser table.
 		 * @return List<EndUser>
 		 */

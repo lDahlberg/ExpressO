@@ -71,7 +71,16 @@ public class BakedGoodWebService {
 		bakedGoodService.update(bakedGood);
 	}
 	
-	//TODO: Add Delete
+	/**
+	 * Deletes an existing Baked Good in the BakedGood table
+	 * @param bakedGoodId
+	 */
+	@RequestMapping(value="/bakedgoods/{id}", method = RequestMethod.DELETE)
+	public void delete(@PathVariable Integer id){
+		
+		bakedGoodService.delete(id);
+		 
+	}
 	
 	/**
 	 * Returns a list of all the Allergens.

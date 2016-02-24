@@ -44,8 +44,19 @@ public class BakedGoodServiceImpl implements BakedGoodService {
 	 * @param bakedGood
 	 */
 	public void update(BakedGood bakedGood) {
+		
 		bakedGoodDao.update(bakedGood);
+		
 	}
+	
+	/**
+	 * Delete an existing BakedGood by referencing its parameter:
+	 * @parameter: bakedGoodId
+	 */
+	public void delete(Integer bakedGoodId) {
+		bakedGoodDao.delete(bakedGoodId);
+	}
+	
 	
 	/**
 	 * Retrieve all BakedGoods from the application.

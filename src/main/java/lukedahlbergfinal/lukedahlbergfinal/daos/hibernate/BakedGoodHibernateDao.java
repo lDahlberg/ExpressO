@@ -55,6 +55,18 @@ public class BakedGoodHibernateDao implements BakedGoodDao {
 			em.merge(bakedGood);
 			
 		}
+		
+		/**
+		 * Deletes a row from the BakedGood table corresponding to the 
+		 * passed-in BakedGood Id
+		 * @param bakedGoodId
+		 */
+		public void delete(Integer bakedGoodId) {
+			
+			BakedGood bakedGood = getBakedGoodById(bakedGoodId);
+			em.remove(bakedGood);
+			
+		}
 
 		/**
 		 * Returns a list of all the rows in the BakedGood table.

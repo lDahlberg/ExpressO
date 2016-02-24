@@ -73,4 +73,13 @@ public class IngredientWebServiceTest {
 		target.update(mockIngredient);
 		verify(mockIngredientService, times(1)).update(mockIngredient);	
 	}
+	
+	/**
+	 * This test checks the IngredientDAO delete functionality.
+	 */
+	@Test
+	public void testDelete(){	
+		target.delete(1);
+		verify(mockIngredientService, times(1)).delete(1);	
+	}
 }

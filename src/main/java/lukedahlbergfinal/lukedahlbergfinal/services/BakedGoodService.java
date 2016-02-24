@@ -25,6 +25,12 @@ public interface BakedGoodService {
 		 * @param bakedGood
 		 */
 		void update(BakedGood bakedGood);
+		
+		/**
+		 * Deletes the BakedGood in storage by searching for its parameter:
+		 * @param bakedGoodId
+		 */
+		void delete(Integer bakedGoodId);
 
 		/**
 		 * Retrieve all bakedGoods from the application.

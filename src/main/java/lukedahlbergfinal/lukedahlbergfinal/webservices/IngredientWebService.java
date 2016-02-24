@@ -68,5 +68,15 @@ public class IngredientWebService {
 		ingredientService.update(ingredient);
 	}
 	
-	//TODO: Add Delete
+
+	/**
+	 * Deletes an existing Ingredient in the Ingredient table
+	 * @param id
+	 */
+	@RequestMapping(value="/ingredients/{id}", method = RequestMethod.DELETE)
+	public void delete(@PathVariable Integer id){
+		
+		ingredientService.delete(id);
+		 
+	}
 }

@@ -49,6 +49,15 @@ public class IngredientServiceImplTest {
 		target.update(mockIngredient);
 		verify(mockIngredientDao, times(1)).update(mockIngredient);	
 	}
+	
+	/**
+	 * This test checks the IngredientDAO delete functionality.
+	 */
+	@Test
+	public void testDelete(){	
+		target.delete(1);
+		verify(mockIngredientDao, times(1)).delete(1);	
+	}
 
 	/**
 	 * This test checks the IngredientHibernateDAO getAllIngredients functionality.
