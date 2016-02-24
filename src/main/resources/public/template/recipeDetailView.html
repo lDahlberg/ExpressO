@@ -1,7 +1,26 @@
 <h1>Detail View</h1>
-<p>Name: {{recipe.name}} </p>
-<p> Instructions: {{recipe.instructions}} </p>
-<p ng-repeat="ingredient in recipe.ingredient"> Ingredients: {{ingredient.name}} </p>
+<p ng-show="!editing"> Name: {{recipe.name}} </p>
+<p ng-show="!editing"> Instructions: {{recipe.instructions}} </p>
+<p ng-show="!editing" ng-repeat="ingredient in recipe.ingredient"> Ingredients: {{ingredient.name}} </p>
 
-<button type="button">Edit</button>
+
+<form name="recipeForm" ng-show="editing" ng-submit="saveRecipe(recipe)">
+<label for="recipeName">Name: </label>
+<input id="recipeName" name="recipeName" type="text" ng-model="recipe.name"/>
+<label for="recipeName">Instructions: </label>
+<input id="recipeName" name="recipeName" type="text" ng-model="recipe.instructions"/>
+<label for="ingredients">Ingredients:</label>
+<select name="ingredients" ng-model="recipe.ingredient" ng-options="ingredient.name for ingredient in ingredients">
+    <option value="">Select Ingredient</option>
+</select>
+<span><button type="button" ng-click=(addIngredient(recipe.ingredient))>Add</button></span>
+<table class="table">
+	<tr ng-repeat="ingredient in ingredientList">
+		<td>{{ingredient.name}}</td>
+	</tr>
+</table>
+<button type="submit">Save Recipe</button>
+</form>
+
+<button type="button" ng-show="!editing" ng-click="editing=!editing">Edit</button>
 <button name="delete" type="button" ng-click="deleteRecipe(recipe.recipeId)">Delete</button>

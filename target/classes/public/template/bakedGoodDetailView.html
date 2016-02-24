@@ -1,9 +1,27 @@
 <h1>Detail View</h1>
-<p>Name: {{bakedGood.name}} </p>
-<p> Cost: {{bakedGood.cost}} </p>
-<p> Vendor: {{bakedGood.vendor.name}} </p>
-<p> Allergen: {{bakedGood.allergen.name}} </p>
-<p> Category: {{bakedGood.category.name}} </p>
+<p ng-show="!editing">Name: {{bakedGood.name}} </p>
+<p ng-show="!editing"> Cost: {{bakedGood.cost}} </p>
+<p ng-show="!editing"> Vendor: {{bakedGood.vendor.name}} </p>
+<p ng-show="!editing"> Allergen: {{bakedGood.allergen.name}} </p>
+<p ng-show="!editing"> Category: {{bakedGood.category.name}} </p>
 
-<button type="button">Edit</button>
+
+<form name="bakedGoodForm" ng-show="editing">
+<label for="bakedGoodName">Name: </label>
+<input id="bakedGoodName" name="bakedGoodName" type="text" ng-model="bakedGood.name"/>
+<label for="bakedGoodCost">Cost: </label>
+<input id="bakedGoodCost" name="bakedGoodCost" type="number" min="0.01" step="0.01" ng-model="bakedGood.cost"/>
+<select ng-model="bakedGood.vendor" ng-options="vendor.name for vendor in vendors">
+    <option>Select Vendor</option>
+</select>
+<select ng-model="bakedGood.allergen" ng-options="allergen.name for allergen in allergens">
+    <option value="">Select Allergen</option>
+</select>
+<select ng-model="bakedGood.category" ng-options="category.name for category in categories">
+    <option value="">Select Category</option>
+</select>
+</form>
+
+<button type="button" ng-show="!editing" ng-click="editing = !editing">Edit</button>
+<button type="button" ng-show="editing" ng-click="saveBakedGood(bakedGood)">Save</button>
 <button name="delete" type="button" ng-click="deleteBakedGood(bakedGood.bakedGoodId)">Delete</button>

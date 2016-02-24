@@ -61,8 +61,8 @@ public class IngredientTest {
 	@Test
 	public void testSetAndGetMeasure(){
 		
-		ingredient.setMeasure("test");
-		assertEquals(expectedString,ingredient.getMeasure());
+		ingredient.setMeasure(1.00);
+		assertEquals(expectedDouble,ingredient.getMeasure());
 		
 	}
 }

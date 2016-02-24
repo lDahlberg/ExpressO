@@ -7,6 +7,18 @@ angular.module('expressOApp').controller('ingredientDetailViewController', ['$sc
 		$scope.ingredient = ingredientData.data;
 	});
 	
+	$scope.editing = false;
+	
+	$scope.saveIngredient = function(ingredient) {
+		$http.put('/ingredients/'+id, ingredient)
+		.success(function(response) {
+			$state.go("ingredientHome");
+		})
+		.error(function(response){
+			console.log("Failure");
+		});
+	};
+	
 	$scope.deleteIngredient = function(id) {
 		$http.delete('/ingredients/'+id)
 		.success(function(response) {

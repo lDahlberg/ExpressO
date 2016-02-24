@@ -2,7 +2,7 @@
 //angular routing information
 angular.module('expressOApp').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
 
-	$urlRouterProvider.otherwise('/');
+	$urlRouterProvider.otherwise('/recipeHome');
 
 	$stateProvider
 		.state("recipeHome", {
@@ -51,5 +51,4 @@ angular.module('expressOApp').config(['$stateProvider', '$urlRouterProvider', fu
 			controller: 'recipeDetailViewController'
 		});
 	
-	//ng-repeat="ingredient in recipes.ingredient"
 }]);

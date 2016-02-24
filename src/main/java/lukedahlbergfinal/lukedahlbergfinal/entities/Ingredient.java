@@ -17,7 +17,7 @@ public class Ingredient {
 	private int ingredientId;
 	private String name;
 	private Double cost;
-	private String measure;
+	private Double measure;
 	
 	/**
 	 * Generic getter for ingredientId
@@ -77,7 +77,7 @@ public class Ingredient {
 	/**
 	 * Generic getter for measure
 	 */
-	public String getMeasure() {
+	public Double getMeasure() {
 		
 		return measure;
 		
@@ -87,7 +87,7 @@ public class Ingredient {
 	 * Generic setter for measurement
 	 * @param measure
 	 */
-	public void setMeasure(String measure) {
+	public void setMeasure(Double measure) {
 		this.measure = measure;
 	}	
 }
