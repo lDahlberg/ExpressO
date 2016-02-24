@@ -1,6 +1,5 @@
 angular.module('expressOApp').controller('ingredientHomeController', ['$scope', '$state', '$http','idService', function($scope, $state, $http, idService){
 	$http.get('/ingredients').then(function(ingredientData){
-		console.log(ingredientData.data);
 		$scope.ingredients = ingredientData.data;
 	});
 	

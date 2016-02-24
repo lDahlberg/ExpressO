@@ -2,8 +2,11 @@ angular.module('expressOApp').controller('ingredientDetailViewController', ['$sc
 	
 	var id = idService.getId();
 	
+	if (id < 0 ) {
+		$state.go("ingredientHome");
+	}
+	
 	$http.get('/ingredients/'+id).then(function(ingredientData){
-		console.log(ingredientData.data);
 		$scope.ingredient = ingredientData.data;
 	});
 	

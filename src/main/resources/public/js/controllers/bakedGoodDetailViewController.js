@@ -2,6 +2,10 @@ angular.module('expressOApp').controller('bakedGoodDetailViewController', ['$sco
 	
 	var id = idService.getId();
 	
+	if (id < 0 ) {
+		$state.go("bakedGoodHome");
+	}
+	
 	$http.get('/allergens').then(function(allergenData){
 		$scope.allergens = allergenData.data;
 	});

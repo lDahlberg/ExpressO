@@ -3,7 +3,6 @@ angular.module('expressOApp').controller('newIngredientController', ['$scope', '
         console.log(ingredientData);
 		$http.post("ingredients",ingredientData)
 		.success(function(data, status, headers, config){
-	    	console.log("success"); 
 	    	$state.go("ingredientHome");
 	    })
 	    .error(function(data, status, headers, config){

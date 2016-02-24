@@ -3,23 +3,30 @@
 <p ng-show="!editing"> Instructions: {{recipe.instructions}} </p>
 <p ng-show="!editing" ng-repeat="ingredient in recipe.ingredient"> Ingredients: {{ingredient.name}} </p>
 
-
 <form name="recipeForm" ng-show="editing" ng-submit="saveRecipe(recipe)">
+
 <label for="recipeName">Name: </label>
-<input id="recipeName" name="recipeName" type="text" ng-model="recipe.name"/>
+<input id="recipeName" name="recipeName" type="text" ng-model="recipe.name" required/>
+<span ng-show="recipeForm.recipeName.$error.required && recipeForm.recipeName.$dirty">Name is required.</span>
+
 <label for="recipeName">Instructions: </label>
-<input id="recipeName" name="recipeName" type="text" ng-model="recipe.instructions"/>
+<input id="recipeInstructions" name="recipeInstructions" type="text" ng-model="recipe.instructions" required/>
+<span ng-show="recipeForm.recipeInstructions.$error.required && recipeForm.recipeInstructions.$dirty">Instructions are required.</span>
+
 <label for="ingredients">Ingredients:</label>
 <select name="ingredients" ng-model="recipe.ingredient" ng-options="ingredient.name for ingredient in ingredients">
     <option value="">Select Ingredient</option>
 </select>
+<span ng-show="error">No Ingredients added.</span>
 <span><button type="button" ng-click=(addIngredient(recipe.ingredient))>Add</button></span>
 <table class="table">
 	<tr ng-repeat="ingredient in ingredientList">
 		<td>{{ingredient.name}}</td>
 	</tr>
 </table>
+
 <button type="submit">Save Recipe</button>
+
 </form>
 
 <button type="button" ng-show="!editing" ng-click="editing=!editing">Edit</button>
