@@ -1,0 +1,7 @@
+<h1>Detail View</h1>
+<p>Name: {{recipe.name}} </p>
+<p> Instructions: {{recipe.instructions}} </p>
+<p ng-repeat="ingredient in recipe.ingredient"> Ingredients: {{ingredient.name}} </p>
+
+<button type="button">Edit</button>
+<button name="delete" type="button" ng-click="deleteRecipe(recipe.recipeId)">Delete</button>

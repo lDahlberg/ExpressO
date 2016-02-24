@@ -1,0 +1,23 @@
+<h1>New Recipe</h1>
+
+<form name="recipeForm" ng-submit="submitRecipe(recipeData)">
+<label for="recipeName">Name: </label>
+<input id="recipeName" name="recipeName" type="text" ng-model="recipeData.name"/>
+
+<label for="recipeName">Instructions: </label>
+<input id="recipeName" name="recipeName" type="text" ng-model="recipeData.instructions"/>
+
+<label for="ingredients">Ingredients:</label>
+<select name="ingredients" ng-model="recipeData.ingredient" ng-options="ingredient.name for ingredient in ingredients">
+    <option value="">Select Ingredient</option>
+</select>
+<span><button type="button" ng-click=(addIngredient(recipeData.ingredient))>Add</button></span>
+<table class="table">
+	<tr ng-repeat="ingredient in ingredientList">
+		<td>{{ingredient.name}}</td>
+	</tr>
+</table>
+
+<button type="submit">Submit Recipe</button>
+
+</form>

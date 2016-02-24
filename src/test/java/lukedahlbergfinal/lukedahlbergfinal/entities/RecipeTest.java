@@ -27,6 +27,17 @@ public class RecipeTest {
 	 * This test ensures that the Recipe name getter and setter is functioning.
 	 */
 	@Test
+	public void testSetAndGetName(){
+		
+		recipe.setName("test");
+		assertEquals(expectedString,recipe.getName());
+		
+	}
+	
+	/**
+	 * This test ensures that the Recipe name getter and setter is functioning.
+	 */
+	@Test
 	public void testSetAndGetInstructions(){
 		
 		recipe.setInstructions("test");

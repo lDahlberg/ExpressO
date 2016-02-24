@@ -5,6 +5,11 @@ angular.module('expressOApp').config(['$stateProvider', '$urlRouterProvider', fu
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
+		.state("recipeHome", {
+			url: '/recipeHome',
+			templateUrl: 'template/recipeHome.html',
+			controller: 'recipeHomeController'
+		})
 		.state("bakedGoodHome", {
 			url: '/bakedGoodHome',
 			templateUrl: 'template/bakedGoodHome.html',
@@ -14,6 +19,11 @@ angular.module('expressOApp').config(['$stateProvider', '$urlRouterProvider', fu
 			url: '/ingredientHome',
 			templateUrl: 'template/ingredientHome.html',
 			controller: 'ingredientHomeController'
+		})
+		.state("newRecipe", {
+			url: '/newRecipe',
+			templateUrl: 'template/newRecipe.html',
+			controller: 'newRecipeController',
 		})
 		.state("newBakedGood", {
 			url: '/newBakedGood',
@@ -34,5 +44,12 @@ angular.module('expressOApp').config(['$stateProvider', '$urlRouterProvider', fu
 			url: '/ingredientDetail',
 			templateUrl: 'template/ingredientDetailView.html',
 			controller: 'ingredientDetailViewController'
+		})
+		.state("recipeDetailView", {
+			url: '/recipeDetail',
+			templateUrl: 'template/recipeDetailView.html',
+			controller: 'recipeDetailViewController'
 		});
+	
+	//ng-repeat="ingredient in recipes.ingredient"
 }]);

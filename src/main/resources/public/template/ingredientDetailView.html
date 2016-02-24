@@ -1,4 +1,7 @@
 <h1>Detail View</h1>
-<p>Name: {{ingredients.name}} </p>
-<p> Cost: {{ingredients.cost}} </p>
-<p> Measurement: {{ingredients.measure}} </p>
+<p>Name: {{ingredient.name}} </p>
+<p> Cost: {{ingredient.cost}} </p>
+<p> Measurement: {{ingredient.measure}} </p>
+
+<button type="button">Edit</button>
+<button name="delete" type="button" ng-click="deleteIngredient(ingredient.ingredientId)">Delete</button>

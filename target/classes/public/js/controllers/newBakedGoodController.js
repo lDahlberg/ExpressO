@@ -16,7 +16,7 @@ angular.module('expressOApp').controller('newBakedGoodController', ['$scope', '$
 		$http.post("bakedgoods", bakedGoodData)
 		.success(function(data, status, headers, config){
 	    	console.log("success");
-	    	state.go("bakedGoodHome");
+	    	$state.go("bakedGoodHome");
 	    })
 	    .error(function(data, status, headers, config){
 	    	console.log("failure");

@@ -1,0 +1,7 @@
+<h1>Recipe List</h1>
+<div ng-repeat="recipe in recipes">
+	<a ng-click="detailView(recipe.recipeId)">{{recipe.name}}</a>
+</div>
+<button ui-sref="newRecipe">Add New Recipe</button>
+<ui-view></ui-view>
+

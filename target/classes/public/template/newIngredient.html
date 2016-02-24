@@ -6,7 +6,7 @@
 <input id="ingredientName" name="ingredientName" type="text" ng-model="ingredientData.name"/>
 
 <label for="ingredientCost">Cost: </label>
-<input id="ingredientCost" name="ingredientCost" type="number" ng-model="ingredientData.cost"/>
+<input id="ingredientCost" name="ingredientCost" type="number" min="0.01" step="0.01" ng-model="ingredientData.cost"/>
 
 <label for="ingredientMeasure">Measurement (in oz): </label>
 <input id="ingredientMeasure" name="ingredientMeasure" type="number" ng-model="ingredientData.measure"/>

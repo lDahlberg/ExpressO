@@ -16,6 +16,7 @@ import javax.persistence.ManyToMany;
 public class Recipe {
 
 	private int recipeId;
+	private String name;
 	private String instructions;
 	private List<Ingredient> ingredient;
 	
@@ -36,6 +37,23 @@ public class Recipe {
 	 */
 	public void setRecipeId(int recipeId) {
 		this.recipeId = recipeId;
+	}
+	
+	/**
+	 * Generic getter for name
+	 */
+	public String getName() {
+		
+		return name;
+		
+	}
+
+	/**
+	 * Generic setter for name
+	 * @param name
+	 */
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	/**

@@ -17,11 +17,16 @@
    		<script src="js/controllers/bakedGoodDetailViewController.js"></script>
    		<script src="js/controllers/ingredientDetailViewController.js"></script>
    		<script src="js/controllers/ingredientHomeController.js"></script>
+   		<script src="js/controllers/recipeDetailViewController.js"></script>
+   		<script src="js/controllers/recipeHomeController.js"></script>
    		<script src="js/controllers/newBakedGoodController.js"></script>
    		<script src="js/controllers/newIngredientController.js"></script>
+   		<script src="js/controllers/newRecipeController.js"></script>
    		<script src="js/services/vendorService.js"></script>
+   		<script src="js/services/idService.js"></script>
 	</head>
 	<body ng-app="expressOApp">
+		<button ui-sref="recipeHome">Recipes</button>
 		<button ui-sref="bakedGoodHome">Baked Goods</button>
 		<button ui-sref="ingredientHome">Ingredients</button>
 		<ui-view></ui-view>

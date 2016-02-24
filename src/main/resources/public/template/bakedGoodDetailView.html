@@ -1,6 +1,9 @@
 <h1>Detail View</h1>
-<p>Name: {{bakedGoods.name}} </p>
-<p> Cost: {{bakedGoods.cost}} </p>
-<p> Vendor: {{bakedGoods.vendor.name}} </p>
-<p> Allergen: {{bakedGoods.allergen.name}} </p>
-<p> Category: {{bakedGoods.category.name}} </p>
+<p>Name: {{bakedGood.name}} </p>
+<p> Cost: {{bakedGood.cost}} </p>
+<p> Vendor: {{bakedGood.vendor.name}} </p>
+<p> Allergen: {{bakedGood.allergen.name}} </p>
+<p> Category: {{bakedGood.category.name}} </p>
+
+<button type="button">Edit</button>
+<button name="delete" type="button" ng-click="deleteBakedGood(bakedGood.bakedGoodId)">Delete</button>

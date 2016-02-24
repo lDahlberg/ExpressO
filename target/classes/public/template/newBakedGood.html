@@ -5,7 +5,7 @@
 <input id="bakedGoodName" name="bakedGoodName" type="text" ng-model="bakedGoodData.name"/>
 
 <label for="bakedGoodCost">Cost: </label>
-<input id="bakedGoodCost" name="bakedGoodCost" type="number" ng-model="bakedGoodData.cost"/>
+<input id="bakedGoodCost" name="bakedGoodCost" type="number" min="0.01" step="0.01" ng-model="bakedGoodData.cost"/>
 
 <select ng-model="bakedGoodData.vendor" ng-options="vendor.name for vendor in vendors">
     <option value="">Select Vendor</option>
