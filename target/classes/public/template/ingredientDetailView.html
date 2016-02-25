@@ -1,7 +1,7 @@
 <h1>Detail View</h1>
 <p ng-show="!editing">Name: {{ingredient.name}} </p>
-<p ng-show="!editing"> Cost: {{ingredient.cost}} </p>
-<p ng-show="!editing"> Measurement: {{ingredient.measure}} </p>
+<p ng-show="!editing"> Cost: $ {{ingredient.cost}} </p>
+<p ng-show="!editing"> Measurement: {{ingredient.measure}} oz</p>
 
 
 <form name="ingredientForm" ng-show="editing" ng-submit="saveIngredient(ingredient)">
@@ -11,7 +11,7 @@
 <span ng-show="ingredientForm.ingredientName.$error.required && ingredientForm.ingredientName.$dirty">Ingredient Name is required.</span>
 
 <label for="ingredientCost">Cost: </label>
-<input id="ingredientCost" name="ingredientCost" type="number" min="0.01" step="0.01" ng-model="ingredient.cost" required/>
+<input id="ingredientCost" name="ingredientCost" ng-model="ingredient.cost" required/>
 <span ng-show="ingredientForm.ingredientCost.$error.required && ingredientForm.ingredientCost.$dirty">Cost is required.</span>
 
 <label for="ingredientMeasure">Measurement (in oz): </label>
@@ -19,8 +19,9 @@
 <span ng-show="ingredientForm.ingredientMeasure.$error.required && ingredientForm.ingredientMeasure.$dirty">Measurement is required and must be a number.</span>
 
 <button type="submit">Save Changes</button>
-
+<button type="button" ng-click="editing = !editing">Cancel</button>
 </form>
 
 <button type="button" ng-show="!editing" ng-click="editing = !editing">Edit</button>
+<button type="button" ng-show="!editing" ui-sref="ingredientHome">Cancel</button>
 <button name="delete" type="button" ng-click="deleteIngredient(ingredient.ingredientId)">Delete</button>

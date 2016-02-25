@@ -1,16 +1,12 @@
-angular.module('expressOApp').controller('ingredientDetailViewController', ['$scope', '$state', '$http','idService', function($scope, $state, $http, idService){
+angular.module('expressOApp').controller('ingredientDetailViewController', ['$scope', '$state', '$http','idService','ingredientService', function($scope, $state, $http, idService, ingredientService){
 	
 	var id = idService.getId();
 	
-	if (id < 0 ) {
-		$state.go("ingredientHome");
-	}
+	$scope.editing = false;
 	
-	$http.get('/ingredients/'+id).then(function(ingredientData){
+	ingredientService.getIngredientById(id).then(function(ingredientData) {
 		$scope.ingredient = ingredientData.data;
 	});
-	
-	$scope.editing = false;
 	
 	$scope.saveIngredient = function(ingredient) {
 		$http.put('/ingredients/'+id, ingredient)

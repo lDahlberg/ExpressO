@@ -31,8 +31,10 @@
 </select>
 <span ng-show="bakedGoodForm.bakedGoodCategory.$error.required && bakedGoodForm.bakedGoodCategory.$dirty">Category is required.</span>
 
+<button type="button" ng-click="saveBakedGood(bakedGood)">Save</button>
+<button type="button" ng-click="editing = !editing">Cancel</button>
 </form>
 
 <button type="button" ng-show="!editing" ng-click="editing = !editing">Edit</button>
-<button type="button" ng-show="editing" ng-click="saveBakedGood(bakedGood)">Save</button>
+<button type="button" ng-show="!editing" ui-sref="bakedGoodHome">Cancel</button>
 <button name="delete" type="button" ng-click="deleteBakedGood(bakedGood.bakedGoodId)">Delete</button>

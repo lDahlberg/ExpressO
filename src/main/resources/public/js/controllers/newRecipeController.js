@@ -1,15 +1,26 @@
-angular.module('expressOApp').controller('newRecipeController', ['$scope', '$state', '$http', function($scope, $state, $http){
+angular.module('expressOApp').controller('newRecipeController', ['$scope', '$state', '$http','ingredientService', function($scope, $state, $http, ingredientService){
 	
 	$scope.ingredientList = [];
+	$scope.ingredients = [];
 	$scope.error = false;
 	
-	$http.get('/ingredients').then(function(ingredientData){
+	ingredientService.getIngredients().then(function(ingredientData) {
 		$scope.ingredients = ingredientData.data;
 	});
 	
 	$scope.addIngredient = function(newIngredient){
 		
 		$scope.ingredientList.push(newIngredient);
+		var index = $scope.ingredients.indexOf(newIngredient);
+		$scope.ingredients.splice(index, 1);
+
+	};
+	
+	$scope.removeIngredient = function(ingredient){
+		
+		var index = $scope.ingredientList.indexOf(ingredient);
+		$scope.ingredientList.splice(index, 1);
+		$scope.ingredients.push(ingredient);
 
 	};
 	

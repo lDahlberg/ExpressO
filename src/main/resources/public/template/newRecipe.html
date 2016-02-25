@@ -18,9 +18,10 @@
 <table class="table">
 	<tr ng-repeat="ingredient in ingredientList">
 		<td>{{ingredient.name}}</td>
+		<td><button type="button" ng-click="removeIngredient(ingredient)">Remove</button></td>
 	</tr>
 </table>
 
 <button type="submit">Submit Recipe</button>
-
+<button type="button" ui-sref="recipeHome">Cancel</button>
 </form>

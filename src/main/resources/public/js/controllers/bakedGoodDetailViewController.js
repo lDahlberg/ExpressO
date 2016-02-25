@@ -1,35 +1,30 @@
-angular.module('expressOApp').controller('bakedGoodDetailViewController', ['$scope', '$state', '$http','idService', function($scope, $state, $http, idService){
+angular.module('expressOApp').controller('bakedGoodDetailViewController', ['$scope', '$state', '$http', 'idService','allergenService','bakedGoodService','categoryService','vendorService', function($scope, $state, $http, idService, allergenService, bakedGoodService, categoryService, vendorService){
 	
 	var id = idService.getId();
 	
-	if (id < 0 ) {
-		$state.go("bakedGoodHome");
-	}
-	
-	$http.get('/allergens').then(function(allergenData){
-		$scope.allergens = allergenData.data;
+	allergenService.getAllergens().then(function(response) {
+		$scope.allergens = response.data;
 	});
 	
-	$http.get('/categories').then(function(categoryData){
-		$scope.categories = categoryData.data;
+	categoryService.getCategories().then(function(response) {
+		$scope.categories = response.data;
 	});
 	
-	$http.get('/vendors').then(function(vendorData){
-		$scope.vendors = vendorData.data;
+	vendorService.getVendors().then(function(response) {
+		$scope.vendors = response.data;
 	});
 	
-	$http.get('/bakedgoods/'+id).then(function(bakedGoodData){
+	bakedGoodService.getBakedGoodById(id).then(function(bakedGoodData){
 		$scope.bakedGood = bakedGoodData.data;
-		var bakedGoodId = bakedGoodData.data.vendor.vendorId - 1;
-		var allergenId = bakedGoodData.data.allergen.allergenId - 1;
-		var categoryId = bakedGoodData.data.category.categoryId - 1;
+		var bakedGoodId = $scope.bakedGood.vendor.vendorId - 1;
+		var allergenId = $scope.bakedGood.allergen.allergenId - 1;
+		var categoryId = $scope.bakedGood.category.categoryId - 1;
 		$scope.bakedGood.vendor = $scope.vendors[bakedGoodId];
 		$scope.bakedGood.allergen = $scope.allergens[allergenId];
 		$scope.bakedGood.category = $scope.categories[categoryId];
-
+		
 	});
-	
-	$scope.editing = false;
+
 	
 	$scope.saveBakedGood = function(bakedGood) {
 		$http.put('/bakedgoods/'+id, bakedGood)

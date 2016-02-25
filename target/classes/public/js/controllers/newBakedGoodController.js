@@ -1,15 +1,15 @@
-angular.module('expressOApp').controller('newBakedGoodController', ['$scope', '$state', '$http', function($scope, $state, $http){
+angular.module('expressOApp').controller('newBakedGoodController', ['$scope', '$state', '$http','allergenService','categoryService','vendorService', function($scope, $state, $http, allergenService, categoryService, vendorService){
 	
-	$http.get('/allergens').then(function(allergenData){
-		$scope.allergens = allergenData.data;
+	allergenService.getAllergens().then(function(response) {
+		$scope.allergens = response.data;
 	});
 	
-	$http.get('/categories').then(function(categoryData){
-		$scope.categories = categoryData.data;
+	categoryService.getCategories().then(function(response) {
+		$scope.categories = response.data;
 	});
 	
-	$http.get('/vendors').then(function(vendorData){
-		$scope.vendors = vendorData.data;
+	vendorService.getVendors().then(function(response) {
+		$scope.vendors = response.data;
 	});
 	
 	$scope.submitBakedGood = function(bakedGoodData) {

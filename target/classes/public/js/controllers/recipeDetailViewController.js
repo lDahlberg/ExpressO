@@ -1,30 +1,46 @@
-angular.module('expressOApp').controller('recipeDetailViewController', ['$scope', '$state', '$http','idService', function($scope, $state, $http, idService){
+angular.module('expressOApp').controller('recipeDetailViewController', ['$scope', '$state', '$http','idService','ingredientService','recipeService', function($scope, $state, $http, idService, ingredientService, recipeService){
 	
 	$scope.error = false;
 	$scope.editing = false;
+	$scope.ingredientList = [];
+	$scope.ingredients = [];
 	
 	var id = idService.getId();
 	
-	if (id < 0 ) {
-		$state.go("recipeHome");
-	}
-	
-	$scope.ingredientList = [];
-	
-	$http.get('/ingredients').then(function(ingredientData){
-		$scope.ingredients = ingredientData.data;
-	});
-	
-	$http.get('/recipes/'+id).then(function(recipeData){
+	recipeService.getRecipeById(id).then(function(recipeData) {
 		$scope.recipe = recipeData.data;
 		$scope.ingredientList = recipeData.data.ingredient;
 
+		ingredientService.getIngredients().then(function(response) {
+			$scope.ingredients = response.data;
+			
+			var checkArray = [];
+			angular.forEach($scope.ingredients, function(value,key){
+				angular.forEach($scope.ingredientList, function(value2, key2){
+					if (angular.equals(value, value2)){
+						checkArray.push(value);
+					}
+				})
+			})
+			$scope.ingredients = $scope.ingredients.filter(function(val) {
+          	  return checkArray.indexOf(val) == -1;
+			})
+		});
 	});
-
+	
 	$scope.addIngredient = function(newIngredient){
 		
 		$scope.ingredientList.push(newIngredient);
-		console.log($scope.ingredientList);
+		var index = $scope.ingredients.indexOf(newIngredient);
+		$scope.ingredients.splice(index, 1);
+
+	};
+	
+	$scope.removeIngredient = function(ingredient){
+		
+		var index = $scope.ingredientList.indexOf(ingredient);
+		$scope.ingredientList.splice(index, 1);
+		$scope.ingredients.push(ingredient);
 
 	};
 	

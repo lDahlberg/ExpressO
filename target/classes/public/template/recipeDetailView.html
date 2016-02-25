@@ -22,12 +22,14 @@
 <table class="table">
 	<tr ng-repeat="ingredient in ingredientList">
 		<td>{{ingredient.name}}</td>
+		<td><button type="button" ng-click="removeIngredient(ingredient)">Remove</button></td>
 	</tr>
 </table>
 
 <button type="submit">Save Recipe</button>
-
+<button type="button" ng-click="editing = !editing">Cancel</button>
 </form>
 
 <button type="button" ng-show="!editing" ng-click="editing=!editing">Edit</button>
+<button type="button" ng-show="!editing" ui-sref="recipeHome">Cancel</button>
 <button name="delete" type="button" ng-click="deleteRecipe(recipe.recipeId)">Delete</button>
