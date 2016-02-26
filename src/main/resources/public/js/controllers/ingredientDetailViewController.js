@@ -10,6 +10,9 @@ angular.module('expressOApp').controller('ingredientDetailViewController', ['$sc
 	
 	ingredientService.getIngredientById(id).then(function(ingredientData) {
 		$scope.ingredient = ingredientData.data;
+		if ($scope.ingredient.cost % 1 == 0 || $scope.ingredient.cost % 1 == 0.5) {
+			$scope.ingredient.cost = $scope.ingredient.cost.toFixed(2);
+		}
 	});
 	
 	//Following scope saves the Ingredient edits made by the user

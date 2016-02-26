@@ -3,7 +3,11 @@ angular.module('expressOApp').controller('bakedGoodHomeController', ['$scope', '
 	
 	bakedGoodService.getBakedGoods().then(function(bakedGoodData) {
 		$scope.bakedGoods = bakedGoodData.data;
-		$scope.bakedGoods.sort();
+		angular.forEach($scope.bakedGoods, function(value,key){
+			if (value.cost % 1 == 0 || value.cost % 1 == 0.5) {
+				value.cost = value.cost.toFixed(2);
+			}
+		});
 	});
 	
 	//If the user clicks on the link, this function takes them to the detail view

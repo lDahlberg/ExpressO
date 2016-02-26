@@ -27,7 +27,9 @@ angular.module('expressOApp').controller('bakedGoodDetailViewController', ['$sco
 		$scope.bakedGood.vendor = $scope.vendors[bakedGoodId];
 		$scope.bakedGood.allergen = $scope.allergens[allergenId];
 		$scope.bakedGood.category = $scope.categories[categoryId];
-		
+		if ($scope.bakedGood.cost % 1 == 0 || $scope.bakedGood.cost % 1 == 0.5) {
+			$scope.bakedGood.cost = $scope.bakedGood.cost.toFixed(2);
+		}
 	});
 
 	//Following scope saves the BakedGood edits made by the user
