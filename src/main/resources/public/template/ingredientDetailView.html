@@ -1,7 +1,7 @@
 <h1>Detail View</h1>
 <p ng-show="!editing">Name: {{ingredient.name}} </p>
 <p ng-show="!editing"> Cost: $ {{ingredient.cost}} </p>
-<p ng-show="!editing"> Measurement: {{ingredient.measure}} oz</p>
+<p ng-show="!editing"> Measure: {{ingredient.measure}} oz</p>
 
 
 <form name="ingredientForm" ng-show="editing" ng-submit="saveIngredient(ingredient)">
@@ -24,4 +24,3 @@
 
 <button type="button" ng-show="!editing" ng-click="editing = !editing">Edit</button>
 <button type="button" ng-show="!editing" ui-sref="ingredientHome">Cancel</button>
-<button name="delete" type="button" ng-click="deleteIngredient(ingredient.ingredientId)">Delete</button>

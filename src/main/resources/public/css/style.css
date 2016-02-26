@@ -1,0 +1,100 @@
+/* background image courtesy of: http://subtlepatterns.com/?s=coffee */ 
+
+/* General CSS */
+html, body {
+	background-image: url(../images/green_cup.png);	
+	margin: 0;
+	height: 100%;
+}
+
+header, footer {
+	background-color: #fffff0;
+	max-width: 100%;
+	padding: 10px;
+}
+
+footer {
+	position:fixed;
+   	left:0px;
+   	bottom:0px;
+   	height:40px;
+   	width: 100%;
+}
+
+.full-width {
+	max-width: 100%;
+}
+
+/* Navbar CSS */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+    text-align: center;
+}
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    padding-left: 25px;
+    padding-right: 25px;  
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+#title {
+	display: block;
+    text-align: center;
+    padding: 9px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.style-right {
+	float: right;
+	list-style-type: none;
+}
+
+ .outer {
+   width: 100%;
+   margin: 0 auto;  
+ }
+ 
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.list-block {
+	display: block;
+	margin-left: 25%;
+	margin-right: 25%;
+ 	margin-top: 30px;
+}
+
+.bg-list-block {
+	display: block;
+	margin-left: 20%;
+	margin-right: 20%;
+ 	margin-top: 30px;
+}
+
+.button-style {
+	margin-top: 50px;
+	background-color: #995533;
+	border-color: black;
+	
+}

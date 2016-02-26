@@ -1,1 +1,1 @@
-angular.module('expressOApp', ['ui.router']);
+angular.module('expressOApp', ['ui.router', 'ui.bootstrap']);

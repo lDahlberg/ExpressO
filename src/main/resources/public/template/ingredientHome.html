@@ -1,6 +1,10 @@
-<h1>Ingredients List</h1>
-<div ng-repeat="ingredient in ingredients">
-	<a ng-click="detailView(ingredient.ingredientId)">{{ingredient.name}}</a>
+<h1 class="text-center">Ingredients</h1>
+<div ng-repeat="ingredient in ingredients" class="outer">
+	<div class="list-block">
+		<a ng-click="detailView(ingredient.ingredientId)">{{ingredient.name}}</a>
+		Cost: {{ingredient.cost}}
+		Measure: {{ingredient.measure}}
+	</div>
 </div>
-<button ui-sref="newIngredient">Add New Ingredient</button>
+<button ui-sref="newIngredient" class="btn btn-primary center-block button-style">Add New Ingredient</button>
 <ui-view></ui-view>

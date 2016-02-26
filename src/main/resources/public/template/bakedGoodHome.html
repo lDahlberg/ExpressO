@@ -1,7 +1,14 @@
-<h1>Baked Goods List</h1>
-<div ng-repeat="bakedGood in bakedGoods">
-	<a ng-click="detailView(bakedGood.bakedGoodId)">{{bakedGood.name}}</a>
+<h1 class="text-center">Baked Goods</h1>
+<div ng-repeat="bakedGood in bakedGoods" class="outer">
+	<div class="bg-list-block">
+		<a ng-click="detailView(bakedGood.bakedGoodId)">{{bakedGood.name}}</a>
+		<span class="style-right">Cost: {{bakedGood.cost}}
+		Vendor:{{bakedGood.vendor.name}}
+		Allergen:{{bakedGood.allergen.name}}
+		Category: {{bakedGood.category.name}}
+		</span>
+	</div>
 </div>
-<button ui-sref="newBakedGood">Add New Baked Good</button>
+<button ui-sref="newBakedGood" class="btn btn-primary center-block button-style">Add New Baked Good</button>
 <ui-view></ui-view>
 

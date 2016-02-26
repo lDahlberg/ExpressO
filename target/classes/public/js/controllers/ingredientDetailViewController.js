@@ -17,14 +17,4 @@ angular.module('expressOApp').controller('ingredientDetailViewController', ['$sc
 			console.log("Failure");
 		});
 	};
-	
-	$scope.deleteIngredient = function(id) {
-		$http.delete('/ingredients/'+id)
-		.success(function(response) {
-			$state.go("ingredientHome");
-		})
-		.error(function(response){
-			console.log("Failure");
-		});
-	};
 }]);

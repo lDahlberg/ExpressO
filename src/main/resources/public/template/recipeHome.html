@@ -1,7 +1,10 @@
-<h1>Recipe List</h1>
-<div ng-repeat="recipe in recipes">
-	<a ng-click="detailView(recipe.recipeId)">{{recipe.name}}</a>
+<h1 class="text-center">Recipes</h1>
+<div ng-repeat="recipe in recipes" class="outer">
+	<div class="list-block">
+		<a ng-click="detailView(recipe.recipeId)">{{recipe.name}}</a>
+		<span class="style-right">{{recipe.instructions}}</span>
+	</div>
 </div>
-<button ui-sref="newRecipe">Add New Recipe</button>
+<button ui-sref="newRecipe" class="btn btn-primary center-block button-style">Add New Recipe</button>
 <ui-view></ui-view>
 
