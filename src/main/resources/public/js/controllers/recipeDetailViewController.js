@@ -5,6 +5,7 @@ angular.module('expressOApp').controller('recipeDetailViewController', ['$scope'
 	$scope.editing = false;
 	$scope.ingredientList = [];
 	$scope.ingredients = [];
+	$scope.serverError = false;
 	
 	var id = idService.getId();
 	
@@ -69,7 +70,7 @@ angular.module('expressOApp').controller('recipeDetailViewController', ['$scope'
 				$state.go("recipeHome");
 			})
 			.error(function(response){
-				console.log("Failure");
+				$scope.serverError = true;
 			});
 		}	
 	};
@@ -80,7 +81,7 @@ angular.module('expressOApp').controller('recipeDetailViewController', ['$scope'
 			$state.go("recipeHome");
 		})
 		.error(function(response){
-			console.log("Failure");
+			$scope.serverError = true;
 		});
 	};
 }]);

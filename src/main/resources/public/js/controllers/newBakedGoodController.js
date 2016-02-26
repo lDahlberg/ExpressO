@@ -1,6 +1,8 @@
 //The new Baked Good Controller operates the addition of a Baked Good.
 angular.module('expressOApp').controller('newBakedGoodController', ['$scope', '$state', '$http','allergenService','categoryService','vendorService', function($scope, $state, $http, allergenService, categoryService, vendorService){
 	
+	$scope.error = false;
+	
 	//Following 3 functions call their respective factories
 	allergenService.getAllergens().then(function(response) {
 		$scope.allergens = response.data;
@@ -22,7 +24,7 @@ angular.module('expressOApp').controller('newBakedGoodController', ['$scope', '$
 	    	$state.go("bakedGoodHome");
 	    })
 	    .error(function(data, status, headers, config){
-	    	console.log("failure");
+	    	$scope.error = true;
 	    });
 	}	
 }]);

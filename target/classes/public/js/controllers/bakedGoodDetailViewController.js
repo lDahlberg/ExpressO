@@ -1,6 +1,7 @@
 //The bakedGoodDetail View Controller operates the detail view, the delete and the editing functions.
 angular.module('expressOApp').controller('bakedGoodDetailViewController', ['$scope', '$state', '$http', 'idService','allergenService','bakedGoodService','categoryService','vendorService', function($scope, $state, $http, idService, allergenService, bakedGoodService, categoryService, vendorService){
 	
+	$scope.error = false;
 	var id = idService.getId();
 	
 	//Following 3 functions call their respective factories
@@ -36,7 +37,7 @@ angular.module('expressOApp').controller('bakedGoodDetailViewController', ['$sco
 			$state.go("bakedGoodHome");
 		})
 		.error(function(response){
-			console.log("Failure");
+			$scope.error = true;
 		});
 	};
 	
@@ -47,7 +48,7 @@ angular.module('expressOApp').controller('bakedGoodDetailViewController', ['$sco
 			$state.go("bakedGoodHome");
 		})
 		.error(function(response){
-			console.log("Failure");
+			$scope.serverError = true;
 		});
 	};
 }]);

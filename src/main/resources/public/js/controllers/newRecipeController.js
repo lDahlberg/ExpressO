@@ -4,6 +4,7 @@ angular.module('expressOApp').controller('newRecipeController', ['$scope', '$sta
 	$scope.ingredientList = [];
 	$scope.ingredients = [];
 	$scope.error = false;
+	$scope.serverError = false;
 	
 	//this function calls Ingredient service for ingredients to include in new Recipe.
 	ingredientService.getIngredients().then(function(ingredientData) {
@@ -46,7 +47,7 @@ angular.module('expressOApp').controller('newRecipeController', ['$scope', '$sta
 			   	$state.go("recipeHome");
 			})
 			.error(function(data, status, headers, config){
-			   	console.log("failure");
+				$scope.serverError = false;
 			});
 		}
 		

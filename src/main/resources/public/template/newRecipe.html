@@ -1,3 +1,5 @@
+<p ng-show="serverError">Server failure: Failed to add Recipe </p>
+
 <h1 class="text-center">New Recipe</h1>
 
 <form name="recipeForm" class="text-center" ng-submit="submitRecipe(recipeData)">
@@ -25,8 +27,14 @@
 		</div>
 		<div class="col-lg-8">
 			<table class="table recipe-input-width">
+				<tr>
+					<td>Name</td>
+					<td> Measurement: </td>
+					<td> Remove: </td>
+				</tr>
 				<tr ng-repeat="ingredient in ingredientList">
 					<td>{{ingredient.name}}</td>
+					<td>{{ingredient.measure}}&nbsp;oz</td>
 					<td><button type="button" ng-click="removeIngredient(ingredient)" class="btn btn-primary remove-btn btn-xs">Remove</button></td>
 				</tr>
 			</table>

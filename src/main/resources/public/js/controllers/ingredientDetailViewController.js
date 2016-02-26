@@ -1,6 +1,8 @@
 //The Ingredient Detail View Controller operates on both the detail view and the editing functions.
 angular.module('expressOApp').controller('ingredientDetailViewController', ['$scope', '$state', '$http','idService','ingredientService', function($scope, $state, $http, idService, ingredientService){
 	
+	$scope.error = false;
+	
 	var id = idService.getId();
 	
 	//This scope sets whether or not the user is in edit mode.
@@ -17,7 +19,7 @@ angular.module('expressOApp').controller('ingredientDetailViewController', ['$sc
 			$state.go("ingredientHome");
 		})
 		.error(function(response){
-			console.log("Failure");
+			$scope.error = true;
 		});
 	};
 }]);

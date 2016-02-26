@@ -1,3 +1,5 @@
+<p ng-show="serverError">Server failure: Failed to change Recipe </p>
+
 <h1 class="text-center">Detail View</h1>
 <p class="text-center" ng-show="!editing"> Name: {{recipe.name}} </p>
 <p class="text-center" ng-show="!editing"> Instructions: {{recipe.instructions}} </p>
@@ -29,8 +31,14 @@
 		</div>
 		<div class="col-lg-8">
 			<table class="table recipe-input-width">
+				<tr>
+					<td>Name</td>
+					<td> Measurement: </td>
+					<td> Remove: </td>
+				</tr>
 				<tr ng-repeat="ingredient in ingredientList">
 					<td>{{ingredient.name}}</td>
+					<td>{{ingredient.measure}}&nbsp;oz</td>
 					<td><button type="button" class="btn btn-primary remove-btn btn-xs" ng-click="removeIngredient(ingredient)">Remove</button></td>
 				</tr>
 			</table>
