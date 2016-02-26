@@ -1,3 +1,4 @@
+//The Recipe Detail View Controller operates the detail view, the delete and the editing functions of the Recipe.
 angular.module('expressOApp').controller('recipeDetailViewController', ['$scope', '$state', '$http','idService','ingredientService','recipeService', function($scope, $state, $http, idService, ingredientService, recipeService){
 	
 	$scope.error = false;
@@ -7,6 +8,9 @@ angular.module('expressOApp').controller('recipeDetailViewController', ['$scope'
 	
 	var id = idService.getId();
 	
+	//The following function obtains the recipes from the factory and then runs the list of ingredients
+	//through a filter and cancels out those in the recipe so that only 1 of each ingredient shows 
+	// in total on the detail page.
 	recipeService.getRecipeById(id).then(function(recipeData) {
 		$scope.recipe = recipeData.data;
 		$scope.ingredientList = recipeData.data.ingredient;
@@ -28,6 +32,8 @@ angular.module('expressOApp').controller('recipeDetailViewController', ['$scope'
 		});
 	});
 	
+	//This function controls the addition of an ingredient to the recipe page by adding to ingredientList array
+	// and removing the ingredient from the ingredients array.
 	$scope.addIngredient = function(newIngredient){
 		
 		$scope.ingredientList.push(newIngredient);
@@ -36,6 +42,8 @@ angular.module('expressOApp').controller('recipeDetailViewController', ['$scope'
 
 	};
 	
+	//This function controls the removal of an ingredient on the recipe page by removing it from
+	// ingredientsList array and adding it back to ingredients array.
 	$scope.removeIngredient = function(ingredient){
 		
 		var index = $scope.ingredientList.indexOf(ingredient);
@@ -44,6 +52,8 @@ angular.module('expressOApp').controller('recipeDetailViewController', ['$scope'
 
 	};
 	
+	//When the user submits the Recipe, it follows this post function
+	//Upon success, user is routed to the Recipe home page.
 	$scope.saveRecipe = function(recipeData) {
 		if ($scope.ingredientList.length == 0) {
 			$scope.error = true;

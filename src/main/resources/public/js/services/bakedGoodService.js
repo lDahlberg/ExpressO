@@ -1,3 +1,5 @@
+//The following service retrieves the list of bakedGoods from the server as a promise or a single 
+//bakedGood by its corresponding id.
 angular.module('expressOApp').factory("bakedGoodService", ['$http','$q', function($http, $q){
 	return {
 		getBakedGoods : function() {

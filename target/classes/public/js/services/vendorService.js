@@ -1,3 +1,4 @@
+//The following service retrieves the list of vendors from the server as a promise.
 angular.module('expressOApp').factory("vendorService", ['$http','$q', function($http, $q){
 	return {
 		getVendors : function() {

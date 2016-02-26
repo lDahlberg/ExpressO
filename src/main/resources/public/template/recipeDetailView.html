@@ -13,7 +13,7 @@
 	  	</div>
 	  	<div class="col-lg-8">
 	  		<label for="recipeInstructions">Instructions: </label>
-			<input id="recipeInstructions" class="form-control recipe-input-width" rows="4" name="recipeInstructions" type="text" ng-model="recipe.instructions" required/>
+			<textarea id="recipeInstructions" class="form-control recipe-input-width" rows="4" name="recipeInstructions" type="text" ng-model="recipe.instructions" required></textarea>
 			<span ng-show="recipeForm.recipeInstructions.$error.required && recipeForm.recipeInstructions.$dirty">Instructions are required.</span>
 		</div>
 	</div>

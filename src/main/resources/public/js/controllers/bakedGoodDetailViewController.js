@@ -1,7 +1,9 @@
+//The bakedGoodDetail View Controller operates the detail view, the delete and the editing functions.
 angular.module('expressOApp').controller('bakedGoodDetailViewController', ['$scope', '$state', '$http', 'idService','allergenService','bakedGoodService','categoryService','vendorService', function($scope, $state, $http, idService, allergenService, bakedGoodService, categoryService, vendorService){
 	
 	var id = idService.getId();
 	
+	//Following 3 functions call their respective factories
 	allergenService.getAllergens().then(function(response) {
 		$scope.allergens = response.data;
 	});
@@ -14,6 +16,8 @@ angular.module('expressOApp').controller('bakedGoodDetailViewController', ['$sco
 		$scope.vendors = response.data;
 	});
 	
+	//This function calls its respective factory and then sets the vendor, allergen, and category
+	// so that, when the user goes to edit, the select boxes will be set properly. 
 	bakedGoodService.getBakedGoodById(id).then(function(bakedGoodData){
 		$scope.bakedGood = bakedGoodData.data;
 		var bakedGoodId = $scope.bakedGood.vendor.vendorId - 1;
@@ -25,7 +29,7 @@ angular.module('expressOApp').controller('bakedGoodDetailViewController', ['$sco
 		
 	});
 
-	
+	//Following scope saves the BakedGood edits made by the user
 	$scope.saveBakedGood = function(bakedGood) {
 		$http.put('/bakedgoods/'+id, bakedGood)
 		.success(function(response) {
@@ -36,6 +40,7 @@ angular.module('expressOApp').controller('bakedGoodDetailViewController', ['$sco
 		});
 	};
 	
+	//Following scope deletes the BakedGood. Only available in the Detail View.
 	$scope.deleteBakedGood = function(id) {
 		$http.delete('/bakedgoods/'+id)
 		.success(function(response) {

@@ -1,3 +1,5 @@
+//The following service retrieves the list of recipe from the server as a promise or a single 
+//recipe by its corresponding id.
 angular.module('expressOApp').factory("recipeService", ['$http','$q', function($http, $q){
 	return {
 		getRecipes : function() {

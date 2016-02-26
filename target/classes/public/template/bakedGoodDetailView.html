@@ -9,11 +9,11 @@
 <form name="bakedGoodForm" class="text-center" ng-show="editing">
 
 <label for="bakedGoodName">Name: </label>
-<input id="bakedGoodName" class="form-control" name="bakedGoodName" type="text" ng-model="bakedGood.name" required/>
+<input id="bakedGoodName" class="form-control text-center" name="bakedGoodName" type="text" ng-model="bakedGood.name" required/>
 <p ng-show="bakedGoodForm.bakedGoodName.$error.required && bakedGoodForm.bakedGoodName.$dirty">Name is required.</p>
 
 <label for="bakedGoodCost">Cost: </label>
-<input id="bakedGoodCost" class="form-control" name="bakedGoodCost" type="number" min="0.01" step="0.01" ng-model="bakedGood.cost" required/>
+<input id="bakedGoodCost" class="form-control text-center" name="bakedGoodCost" type="number" min="0.01" step="0.01" ng-model="bakedGood.cost" required/>
 <p ng-show="bakedGoodForm.bakedGoodCost.$error.required && bakedGoodForm.bakedGoodCost.$dirty">Cost is required and must be a number.</p>
 
 <select class="form-control" name="bakedGoodVendor" ng-model="bakedGood.vendor" ng-options="vendor.name for vendor in vendors | orderBy:'name'" required>

@@ -1,5 +1,5 @@
 'use strict';
-//angular routing information
+//angular routing information and resolves
 angular.module('expressOApp').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
 
 	$urlRouterProvider.otherwise('/recipeHome');

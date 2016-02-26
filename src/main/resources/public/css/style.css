@@ -88,34 +88,26 @@ li a:hover {
     font-size: 20px;
 }
 
-.style-right {
-	float: right;
-	list-style-type: none;
-}
-
  .outer {
    width: 100%;
    margin: 0 auto;  
  }
- 
-/* .center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-} */
+.style-right {
+	float: right;
+}
 
-.list-block {
-	display: block;
-	margin-left: 30%;
-	margin-right: 30%;
- 	margin-top: 30px;
+.border-line {
  	border-bottom: 1px solid black;
+ 	margin-right: 40%;
+ 	margin-left: 40%;
+ 	margin-top: 15px;
+ 	margin-bottom: 15px;
 }
 
 .bg-list-block {
 	display: block;
-	margin-left:25%;
-	margin-right: 25%;
+	margin-left:35%;
+	margin-right: 35%;
  	margin-top: 30px;
  	border-bottom: 1px solid black;
 }
