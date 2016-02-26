@@ -3,7 +3,8 @@ angular.module('expressOApp').controller('newRecipeController', ['$scope', '$sta
 	
 	$scope.ingredientList = [];
 	$scope.ingredients = [];
-	$scope.error = false;
+	$scope.ingredientError = false;
+	$scope.ingredientError2 = false;
 	$scope.serverError = false;
 	
 	//this function calls Ingredient service for ingredients to include in new Recipe.
@@ -13,12 +14,18 @@ angular.module('expressOApp').controller('newRecipeController', ['$scope', '$sta
 	
 	//This function controls the addition of an ingredient to the recipe page by adding to ingredientList array
 	// and removing the ingredient from the ingredients array.
+	//If user tries to add null element, if statement catches the error and 
+	// displays issue to user.
 	$scope.addIngredient = function(newIngredient){
 		
-		$scope.ingredientList.push(newIngredient);
-		var index = $scope.ingredients.indexOf(newIngredient);
-		$scope.ingredients.splice(index, 1);
-
+		if (newIngredient == null || newIngredient.name == ""){
+			$scope.ingredientError2 = true;
+		} else {
+			$scope.ingredientError2 = false;
+			$scope.ingredientList.push(newIngredient);
+			var index = $scope.ingredients.indexOf(newIngredient);
+			$scope.ingredients.splice(index, 1);
+		}	
 	};
 	
 	//This function controls the removal of an ingredient on the recipe page by removing it from
@@ -35,7 +42,7 @@ angular.module('expressOApp').controller('newRecipeController', ['$scope', '$sta
 	//Upon success, user is routed to the Recipe home page.
 	$scope.submitRecipe = function(recipeData) {
 		if ($scope.ingredientList.length == 0) {
-			$scope.error = true;
+			$scope.ingredientError = true;
 		} else {
 			recipeData = {
 				name: recipeData.name,

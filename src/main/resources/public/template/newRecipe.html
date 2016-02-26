@@ -22,7 +22,8 @@
 			<select name="ingredients" class="form-control recipe-input-width" ng-model="recipeData.ingredient" ng-options="ingredient.name for ingredient in ingredients | orderBy:'name' ">
 			    <option value="">Select Ingredient</option>
 			</select>
-			<span ng-show="error">No Ingredients added.</span>
+			<span ng-show="ingredientError">No Ingredients added.</span>
+			<span ng-show="ingredientError2">You must select an ingredient.</span>
 			<button type="button" ng-click=(addIngredient(recipeData.ingredient)) class="btn btn-primary center-block button-style">Add</button>
 		</div>
 		<div class="col-lg-8">

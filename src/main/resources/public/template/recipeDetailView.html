@@ -5,7 +5,7 @@
 <p class="text-center" ng-show="!editing"> Instructions: {{recipe.instructions}} </p>
 <p class="text-center" ng-show="!editing" ng-repeat="ingredient in recipe.ingredient"> Ingredients: {{ingredient.name}} </p>
 
-<form name="recipeForm" ng-show="editing" ng-submit="saveRecipe(recipe)">
+<form name="recipeForm" ng-show="editing" class="text-center" ng-submit="saveRecipe(recipe)">
 
 	<div class="row container-fluid">
 		<div class="col-lg-4">
@@ -26,7 +26,8 @@
 			<select name="ingredients" class="form-control recipe-input-width" ng-model="recipe.ingredient" ng-options="ingredient.name for ingredient in ingredients | orderBy:'name'">
     			<option value="">Select Ingredient</option>
 			</select>
-			<span ng-show="error">No Ingredients added.</span>
+			<span ng-show="ingredientError">No Ingredients added.</span>
+			<span ng-show="ingredientError2">You must select an ingredient.</span>
 			<button type="button" ng-click=(addIngredient(recipe.ingredient)) class="btn btn-primary center-block button-style">Add</button>
 		</div>
 		<div class="col-lg-8">

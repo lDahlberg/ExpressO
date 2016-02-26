@@ -1,7 +1,8 @@
 //The Recipe Detail View Controller operates the detail view, the delete and the editing functions of the Recipe.
 angular.module('expressOApp').controller('recipeDetailViewController', ['$scope', '$state', '$http','idService','ingredientService','recipeService', function($scope, $state, $http, idService, ingredientService, recipeService){
 	
-	$scope.error = false;
+	$scope.ingredientError = false;
+	$scope.ingredientError2 = false;
 	$scope.editing = false;
 	$scope.ingredientList = [];
 	$scope.ingredients = [];
@@ -35,12 +36,17 @@ angular.module('expressOApp').controller('recipeDetailViewController', ['$scope'
 	
 	//This function controls the addition of an ingredient to the recipe page by adding to ingredientList array
 	// and removing the ingredient from the ingredients array.
+	//If user tries to add null element, if statement catches the error and 
+	// displays issue to user.
 	$scope.addIngredient = function(newIngredient){
-		
-		$scope.ingredientList.push(newIngredient);
-		var index = $scope.ingredients.indexOf(newIngredient);
-		$scope.ingredients.splice(index, 1);
-
+		if (newIngredient == null || newIngredient.length> 1){
+			$scope.ingredientError2 = true;
+		} else {
+			$scope.ingredientError2 = false;
+			$scope.ingredientList.push(newIngredient);
+			var index = $scope.ingredients.indexOf(newIngredient);
+			$scope.ingredients.splice(index, 1);
+		}
 	};
 	
 	//This function controls the removal of an ingredient on the recipe page by removing it from
