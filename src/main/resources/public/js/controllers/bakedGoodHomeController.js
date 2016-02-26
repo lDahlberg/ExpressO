@@ -2,6 +2,7 @@ angular.module('expressOApp').controller('bakedGoodHomeController', ['$scope', '
 	
 	bakedGoodService.getBakedGoods().then(function(bakedGoodData) {
 		$scope.bakedGoods = bakedGoodData.data;
+		$scope.bakedGoods.sort();
 	});
 	
 	$scope.detailView = function(id) {

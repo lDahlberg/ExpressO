@@ -1,40 +1,49 @@
-<h1>Detail View</h1>
-<p ng-show="!editing">Name: {{bakedGood.name}} </p>
-<p ng-show="!editing"> Cost: {{bakedGood.cost}} </p>
-<p ng-show="!editing"> Vendor: {{bakedGood.vendor.name}} </p>
-<p ng-show="!editing"> Allergen: {{bakedGood.allergen.name}} </p>
-<p ng-show="!editing"> Category: {{bakedGood.category.name}} </p>
+<h1 class="text-center">Detail View</h1>
+<p class="text-center" ng-show="!editing">Name: {{bakedGood.name}} </p>
+<p class="text-center" ng-show="!editing"> Cost: {{bakedGood.cost}} </p>
+<p class="text-center" ng-show="!editing"> Vendor: {{bakedGood.vendor.name}} </p>
+<p class="text-center" ng-show="!editing"> Allergen: {{bakedGood.allergen.name}} </p>
+<p class="text-center" ng-show="!editing"> Category: {{bakedGood.category.name}} </p>
 
 
-<form name="bakedGoodForm" ng-show="editing">
+<form name="bakedGoodForm" class="text-center" ng-show="editing">
 
 <label for="bakedGoodName">Name: </label>
-<input id="bakedGoodName" name="bakedGoodName" type="text" ng-model="bakedGood.name" required/>
-<span ng-show="bakedGoodForm.bakedGoodName.$error.required && bakedGoodForm.bakedGoodName.$dirty">Name is required.</span>
+<input id="bakedGoodName" class="form-control" name="bakedGoodName" type="text" ng-model="bakedGood.name" required/>
+<p ng-show="bakedGoodForm.bakedGoodName.$error.required && bakedGoodForm.bakedGoodName.$dirty">Name is required.</p>
 
 <label for="bakedGoodCost">Cost: </label>
-<input id="bakedGoodCost" name="bakedGoodCost" type="number" min="0.01" step="0.01" ng-model="bakedGood.cost" required/>
-<span ng-show="bakedGoodForm.bakedGoodCost.$error.required && bakedGoodForm.bakedGoodCost.$dirty">Cost is required and must be a number.</span>
+<input id="bakedGoodCost" class="form-control" name="bakedGoodCost" type="number" min="0.01" step="0.01" ng-model="bakedGood.cost" required/>
+<p ng-show="bakedGoodForm.bakedGoodCost.$error.required && bakedGoodForm.bakedGoodCost.$dirty">Cost is required and must be a number.</p>
 
-<select name="bakedGoodVendor" ng-model="bakedGood.vendor" ng-options="vendor.name for vendor in vendors" required>
+<select class="form-control" name="bakedGoodVendor" ng-model="bakedGood.vendor" ng-options="vendor.name for vendor in vendors | orderBy:'name'" required>
     <option>Select Vendor</option>
 </select>
 <span ng-show="bakedGoodForm.bakedGoodVendor.$error.required && bakedGoodForm.bakedGoodVendor.$dirty">Vendor is required.</span>
 
-<select name="bakedGoodAllergen" ng-model="bakedGood.allergen" ng-options="allergen.name for allergen in allergens" required>
+<select class="form-control"name="bakedGoodAllergen" ng-model="bakedGood.allergen" ng-options="allergen.name for allergen in allergens | orderBy:'name'" required>
     <option value="">Select Allergen</option>
 </select>
 <span ng-show="bakedGoodForm.bakedGoodAllergen.$error.required && bakedGoodForm.bakedGoodAllergen.$dirty">Allergen is required.</span>
 
-<select name="bakedGoodCategory" ng-model="bakedGood.category" ng-options="category.name for category in categories" required>
+<select class="form-control" name="bakedGoodCategory" ng-model="bakedGood.category" ng-options="category.name for category in categories | orderBy:'name'" required>
     <option value="">Select Category</option>
 </select>
 <span ng-show="bakedGoodForm.bakedGoodCategory.$error.required && bakedGoodForm.bakedGoodCategory.$dirty">Category is required.</span>
 
-<button type="button" ng-click="saveBakedGood(bakedGood)">Save</button>
-<button type="button" ng-click="editing = !editing">Cancel</button>
+	<div class="container-fluid">
+		<div class="text-center">
+			<button type="button" class="btn btn-primary button-style" ng-click="saveBakedGood(bakedGood)">Save</button>
+			<button type="button" ng-click="editing = !editing" class="btn btn-primary button-style">Cancel</button>
+		</div>
+	</div>
 </form>
 
-<button type="button" ng-show="!editing" ng-click="editing = !editing">Edit</button>
-<button type="button" ng-show="!editing" ui-sref="bakedGoodHome">Cancel</button>
-<button name="delete" type="button" ng-click="deleteBakedGood(bakedGood.bakedGoodId)">Delete</button>
+<div class="container-fluid">
+	<div class="text-center">
+		<button type="button" class="btn btn-primary button-style button-margin" ng-show="!editing" ng-click="editing=!editing">Edit</button>
+		<button type="button" class="btn btn-primary button-style button-margin" ng-show="!editing" ui-sref="bakedGoodHome">Cancel</button>
+		<button type="button" name="delete" class="btn btn-primary button-style button-margin" ng-show="!editing" ng-click="deleteBakedGood(bakedGood.bakedGoodId)">Delete</button>
+	</div>
+</div>
+

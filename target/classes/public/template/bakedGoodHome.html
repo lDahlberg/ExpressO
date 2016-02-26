@@ -1,11 +1,11 @@
 <h1 class="text-center">Baked Goods</h1>
-<div ng-repeat="bakedGood in bakedGoods" class="outer">
+<div ng-repeat="bakedGood in bakedGoods | orderBy:'name'" class="outer">
 	<div class="bg-list-block">
 		<a ng-click="detailView(bakedGood.bakedGoodId)">{{bakedGood.name}}</a>
-		<span class="style-right">Cost: {{bakedGood.cost}}
-		Vendor:{{bakedGood.vendor.name}}
-		Allergen:{{bakedGood.allergen.name}}
-		Category: {{bakedGood.category.name}}
+		<span class="style-right">Cost:&nbsp;${{bakedGood.cost}}&nbsp;
+		Vendor:&nbsp;{{bakedGood.vendor.name}}&nbsp;&nbsp;&nbsp;
+		Allergen:&nbsp;{{bakedGood.allergen.name}}&nbsp;&nbsp;&nbsp;
+		Category:&nbsp;{{bakedGood.category.name}}&nbsp;&nbsp;&nbsp;
 		</span>
 	</div>
 </div>

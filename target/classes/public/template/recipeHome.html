@@ -1,5 +1,5 @@
 <h1 class="text-center">Recipes</h1>
-<div ng-repeat="recipe in recipes" class="outer">
+<div ng-repeat="recipe in recipes | orderBy:'name'" class="outer">
 	<div class="list-block">
 		<a ng-click="detailView(recipe.recipeId)">{{recipe.name}}</a>
 		<span class="style-right">{{recipe.instructions}}</span>

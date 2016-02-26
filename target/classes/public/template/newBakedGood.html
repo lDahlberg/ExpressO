@@ -10,17 +10,17 @@
 	<input id="bakedGoodCost" class="form-control" name="bakedGoodCost" type="number" min="0.01" step="0.01" ng-model="bakedGoodData.cost" required/>
 	<span ng-show="bakedGoodForm.bakedGoodCost.$error.required && bakedGoodForm.bakedGoodCost.$dirty">Cost is required and must be a number.</span>
 	
-	<select class="form-control" name="bakedGoodVendor" ng-model="bakedGoodData.vendor" ng-options="vendor.name for vendor in vendors" required>
+	<select class="form-control" name="bakedGoodVendor" ng-model="bakedGoodData.vendor" ng-options="vendor.name for vendor in vendors | orderBy:'name'" required>
 	    <option value="">Select Vendor</option>
 	</select>
 	<span ng-show="bakedGoodForm.bakedGoodVendor.$error.required && bakedGoodForm.bakedGoodVendor.$dirty">Vendor is required.</span>
 	
-	<select class="form-control" name="bakedGoodAllergen" ng-model="bakedGoodData.allergen" ng-options="allergen.name for allergen in allergens" required>
+	<select class="form-control" name="bakedGoodAllergen" ng-model="bakedGoodData.allergen" ng-options="allergen.name for allergen in allergens | orderBy:'name'" required>
 	    <option value="">Select Allergen</option>
 	</select>
 	<span ng-show="bakedGoodForm.bakedGoodAllergen.$error.required && bakedGoodForm.bakedGoodAllergen.$dirty">Allergen is required.</span>
 	
-	<select class="form-control" name="bakedGoodCategory" ng-model="bakedGoodData.category" ng-options="category.name for category in categories" required>
+	<select class="form-control" name="bakedGoodCategory" ng-model="bakedGoodData.category" ng-options="category.name for category in categories | orderBy:'name'" required>
 	    <option value="">Select Category</option>
 	</select>
 	<span ng-show="bakedGoodForm.bakedGoodCategory.$error.required && bakedGoodForm.bakedGoodCategory.$dirty">Category is required.</span>

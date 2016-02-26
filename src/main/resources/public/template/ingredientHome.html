@@ -1,10 +1,10 @@
 <h1 class="text-center">Ingredients</h1>
-<div ng-repeat="ingredient in ingredients" class="outer">
+<div ng-repeat="ingredient in ingredients | orderBy:'name'" class="outer">
 	<div class="ingr-list-block">
-		<a ng-click="detailView(ingredient.ingredientId)">{{ingredient.name}}</a>
+		<a class="style-left" ng-click="detailView(ingredient.ingredientId)">{{ingredient.name}}</a>
 		<span class="style-right">
-			Cost: {{ingredient.cost}}
-			Measure: {{ingredient.measure}}
+			Cost:&nbsp;${{ingredient.cost}} &nbsp;
+			Measure:&nbsp;{{ingredient.measure}}&nbsp;oz
 		</span>
 	</div>
 </div>
