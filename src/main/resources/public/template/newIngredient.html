@@ -1,19 +1,28 @@
-<h1>Add New Ingredient</h1>
+<h1 class="text-center">Add New Ingredient</h1>
 
-<form name="ingredientForm" ng-submit="submitIngredient(ingredientData)">
+<form name="ingredientForm" class="text-center" ng-submit="submitIngredient(ingredientData)">
 
 <label for="ingredientName">Name: </label>
-<input id="ingredientName" name="ingredientName" type="text" ng-model="ingredientData.name" required/>
-<span ng-show="ingredientForm.ingredientName.$error.required && ingredientForm.ingredientName.$dirty">Ingredient Name is required.</span>
+<input id="ingredientName" class="form-control" name="ingredientName" type="text" ng-model="ingredientData.name" required/>
+<p ng-show="ingredientForm.ingredientName.$error.required && ingredientForm.ingredientName.$dirty">Ingredient Name is required.</p>
  
 <label for="ingredientCost">Cost: </label>
-<input id="ingredientCost" name="ingredientCost" type="number" ng-model="ingredientData.cost" step="0.01" min ="0.01" required/>
-<span ng-show="ingredientForm.ingredientCost.$error.required && ingredientForm.ingredientCost.$dirty">Cost is required.</span>
+<input id="ingredientCost" class="form-control" name="ingredientCost" type="number" ng-model="ingredientData.cost" step="0.01" min ="0.01" required/>
+<p ng-show="ingredientForm.ingredientCost.$error.required && ingredientForm.ingredientCost.$dirty">Cost is required.</p>
 
 <label for="ingredientMeasure">Measurement (in oz): </label>
-<input id="ingredientMeasure" name="ingredientMeasure" type="number" ng-model="ingredientData.measure" required/>
-<span ng-show="ingredientForm.ingredientMeasure.$error.required && ingredientForm.ingredientMeasure.$dirty">Measurement is required and must be a number.</span>
+<input id="ingredientMeasure"  class="form-control" name="ingredientMeasure" type="number" ng-model="ingredientData.measure" required/>
+<p ng-show="ingredientForm.ingredientMeasure.$error.required && ingredientForm.ingredientMeasure.$dirty">Measurement is required and must be a number.</p>
 
-<button type="submit">Submit Ingredient</button>
-<button type="button" ui-sref="ingredientHome">Cancel</button>
+<div class="container-fluid">
+	<div class="text-center">
+		<button type="submit" class="btn btn-primary button-style button-margin">Submit Ingredient</button>
+		<button type="button" ui-sref="ingredientHome" class="btn btn-primary button-style button-margin">Cancel</button>
+	</div>
+</div>
 </form>
+
+
+
+
+

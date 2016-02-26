@@ -1,27 +1,43 @@
-<h1>New Recipe</h1>
+<h1 class="text-center">New Recipe</h1>
 
-<form name="recipeForm" ng-submit="submitRecipe(recipeData)">
-<label for="recipeName">Name: </label>
-<input id="recipeName" name="recipeName" type="text" ng-model="recipeData.name"/ required>
-<span ng-show="recipeForm.recipeName.$error.required && recipeForm.recipeName.$dirty">Name is required.</span>
+<form name="recipeForm" class="text-center" ng-submit="submitRecipe(recipeData)">
 
-<label for="recipeInstructions">Instructions: </label>
-<input id="recipeInstructions" name="recipeInstructions" type="text" ng-model="recipeData.instructions" required/>
-<span ng-show="recipeForm.recipeInstructions.$error.required && recipeForm.recipeInstructions.$dirty">Instructions are required.</span>
-
-<label for="ingredients">Ingredients:</label>
-<select name="ingredients" ng-model="recipeData.ingredient" ng-options="ingredient.name for ingredient in ingredients">
-    <option value="">Select Ingredient</option>
-</select>
-<span ng-show="error">No Ingredients added.</span>
-<span><button type="button" ng-click=(addIngredient(recipeData.ingredient))>Add</button></span>
-<table class="table">
-	<tr ng-repeat="ingredient in ingredientList">
-		<td>{{ingredient.name}}</td>
-		<td><button type="button" ng-click="removeIngredient(ingredient)">Remove</button></td>
-	</tr>
-</table>
-
-<button type="submit">Submit Recipe</button>
-<button type="button" ui-sref="recipeHome">Cancel</button>
+	<div class="row container-fluid">
+	  <div class="col-lg-4">
+	  	<label for="recipeName">Name: </label>
+		<input id="recipeName" class="form-control recipe-input-width" name="recipeName" type="text" ng-model="recipeData.name"/ required>
+		<span ng-show="recipeForm.recipeName.$error.required && recipeForm.recipeName.$dirty">Name is required.</span></div>
+	  <div class="col-lg-8">
+	  	<label for="recipeInstructions">Instructions: </label>
+		<textarea id="recipeInstructions" class="form-control recipe-input-width" rows="4" name="recipeInstructions" type="text" ng-model="recipeData.instructions" required/></textarea>
+		<span ng-show="recipeForm.recipeInstructions.$error.required && recipeForm.recipeInstructions.$dirty">Instructions are required.</span>
+		</div>
+	</div>
+	
+	<div class="row container-fluid">
+		<div class="col-lg-4">
+			<label for="ingredients">Ingredients:</label>
+			<select name="ingredients" class="form-control recipe-input-width" ng-model="recipeData.ingredient" ng-options="ingredient.name for ingredient in ingredients">
+			    <option value="">Select Ingredient</option>
+			</select>
+			<span ng-show="error">No Ingredients added.</span>
+			<button type="button" ng-click=(addIngredient(recipeData.ingredient)) class="btn btn-primary center-block button-style">Add</button>
+		</div>
+		<div class="col-lg-8">
+			<table class="table recipe-input-width">
+				<tr ng-repeat="ingredient in ingredientList">
+					<td>{{ingredient.name}}</td>
+					<td><button type="button" ng-click="removeIngredient(ingredient)" class="btn btn-primary remove-btn btn-xs">Remove</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<div class="container-fluid">
+		<div class="text-center">
+			<button type="submit" class="btn btn-primary button-style button-margin">Submit Recipe</button>
+			<button type="button" ui-sref="recipeHome" class="btn btn-primary button-style button-margin">Cancel</button>
+		</div>
+	</div>
+	
 </form>
