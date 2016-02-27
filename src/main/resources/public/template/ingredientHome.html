@@ -1,5 +1,5 @@
 <h1 class="text-center">Ingredients</h1>
-<button ui-sref="newIngredient" class="btn btn-primary center-block button-style">Add New Ingredient</button>
+
 <div ng-repeat="ingredient in ingredients | orderBy:'name'" class="outer">
 	<div class="ingr-list-block">
 		<a class="style-left" ng-click="detailView(ingredient.ingredientId)">{{ingredient.name}}</a>
@@ -9,4 +9,4 @@
 		</span>
 	</div>
 </div>
-<ui-view></ui-view>
+<button ui-sref="newIngredient" class="btn btn-primary center-block button-style">Add New Ingredient</button>
