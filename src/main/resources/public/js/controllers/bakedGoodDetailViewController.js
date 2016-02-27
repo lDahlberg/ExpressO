@@ -50,7 +50,7 @@ angular.module('expressOApp').controller('bakedGoodDetailViewController', ['$sco
 			$state.go("bakedGoodHome");
 		})
 		.error(function(response){
-			$scope.serverError = true;
+			$scope.error = true;
 		});
 	};
 }]);

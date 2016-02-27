@@ -1,4 +1,5 @@
 <h1 class="text-center">Baked Goods</h1>
+<button ui-sref="newBakedGood" class="btn btn-primary center-block button-style">Add New Baked Good</button>
 <div ng-repeat="bakedGood in bakedGoods | orderBy:'name'" class="outer">
 	<div class="bg-list-block">
 		<a ng-click="detailView(bakedGood.bakedGoodId)">{{bakedGood.name}}</a>
@@ -6,6 +7,5 @@
 		</span>
 	</div>
 </div>
-<button ui-sref="newBakedGood" class="btn btn-primary center-block button-style">Add New Baked Good</button>
 <ui-view></ui-view>
 

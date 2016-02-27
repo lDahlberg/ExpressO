@@ -1,3 +1,5 @@
+<p ng-show="error">Server failure: Failed to change Ingredient </p>
+
 <h1 class="text-center">Detail View</h1>
 <p class="text-center" ng-show="!editing">Name: {{ingredient.name}} </p>
 <p class="text-center" ng-show="!editing"> Cost: $ {{ingredient.cost}} </p>
@@ -8,12 +10,12 @@
 
 	<label for="ingredientName">Name: </label>
 	<input id="ingredientName" class="form-control text-center" name="ingredientName" type="text" ng-model="ingredient.name" required/>
-	<span ng-show="ingredientForm.ingredientName.$error.required && ingredientForm.ingredientName.$dirty">Ingredient Name is required.</span>
+	<p ng-show="ingredientForm.ingredientName.$error.required && ingredientForm.ingredientName.$dirty">Ingredient Name is required.</p>
 	
 	<label for="ingredientCost">Cost: </label>
-	<input id="ingredientCost"  class="form-control text-center" name="ingredientCost" ng-model="ingredient.cost" required/>
-	<span ng-show="ingredientForm.ingredientCost.$error.required && ingredientForm.ingredientCost.$dirty">Cost is required.</span>
-	<p ng-show="error">Cost must be a number</p>
+	<input id="ingredientCost"  class="form-control text-center" name="ingredientCost" ng-model="ingredient.cost" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" required/>
+	<p ng-show="ingredientForm.ingredientCost.$error.required && ingredientForm.ingredientCost.$dirty">Cost is required.</p>
+	<p ng-show="ingredientForm.ingredientCost.$error.pattern && ingredientForm.ingredientCost.$dirty">Must be a number.</p>
 	
 	<label for="ingredientMeasure">Measurement (in oz): </label>
 	<input id="ingredientMeasure" class="form-control text-center" name="ingredientMeasure" type="number" min="0.01" step="0.01" ng-model="ingredient.measure" required/>

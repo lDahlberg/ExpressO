@@ -1,3 +1,5 @@
+<p ng-show="error">Server failure: Failed to change Baked Good </p>
+
 <h1 class="text-center">Detail View</h1>
 <p class="text-center" ng-show="!editing">Name: {{bakedGood.name}} </p>
 <p class="text-center" ng-show="!editing"> Cost: ${{bakedGood.cost}} </p>
@@ -12,8 +14,8 @@
 <p ng-show="bakedGoodForm.bakedGoodName.$error.required && bakedGoodForm.bakedGoodName.$dirty">Name is required.</p>
 
 <label for="bakedGoodCost">Cost: </label>
-<input id="bakedGoodCost" class="form-control text-center" name="bakedGoodCost" type="text" ng-model="bakedGood.cost" required/>
-<p ng-show="error">Cost must be a number</p>
+<input id="bakedGoodCost" class="form-control text-center" name="bakedGoodCost" type="text" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" ng-model="bakedGood.cost" required/>
+<p ng-show="bakedGoodForm.bakedGoodCost.$error.pattern && bakedGoodForm.bakedGoodCost.$dirty">Must be a number</p>
 <p ng-show="bakedGoodForm.bakedGoodCost.$error.required && bakedGoodForm.bakedGoodCost.$dirty">Cost is required.</p>
 
 <select class="form-control" name="bakedGoodVendor" ng-model="bakedGood.vendor" ng-options="vendor.name for vendor in vendors | orderBy:'name'" required>

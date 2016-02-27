@@ -1,9 +1,9 @@
 <h1 class="text-center">Recipes</h1>
+<button ui-sref="newRecipe" class="btn btn-primary center-block button-style">Add New Recipe</button>
 <div ng-repeat="recipe in recipes | orderBy:'name'" class="outer">
 	<div class="border-line text-center">
 		<a ng-click="detailView(recipe.recipeId)">{{recipe.name}}</a>
 	</div>
 </div>
-<button ui-sref="newRecipe" class="btn btn-primary center-block button-style">Add New Recipe</button>
 <ui-view></ui-view>
 
