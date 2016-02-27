@@ -11,6 +11,7 @@ html, body {
 	background-image: url(../images/green_cup.png);	
 	margin: 0;
 	height: 100%;
+	max-width: 100%;
 }
 
 h1 {
@@ -38,11 +39,11 @@ footer {
    	height: 40px;
 }
 
-.page-wrap {
-	max-width:100%;
- 	 min-height: 100%;
-  	/* equal to footer height */
+ .page-wrap {
+ 	min-height: calc(100% - 105px);
+  	/*equal to footer height + margin top */
   	margin-bottom: -40px;
+  	margin-top: 52px;
 }
 .page-wrap:after {
   content: "";
