@@ -7,6 +7,13 @@
 
 <form name="recipeForm" ng-show="editing" class="text-center" ng-submit="saveRecipe(recipe)">
 
+	<div class="container-fluid">
+		<div class="text-center">
+			<button type="submit" class="btn btn-primary button-style button-margin">Save Recipe</button>
+			<button type="button" ng-click="editing = !editing" class="btn btn-primary button-style button-margin">Cancel</button>
+		</div>
+	</div>
+	
 	<div class="row container-fluid">
 		<div class="col-lg-4">
 	  		<label for="recipeName">Name: </label>
@@ -43,13 +50,6 @@
 					<td><button type="button" class="btn btn-primary remove-btn btn-xs" ng-click="removeIngredient(ingredient)">Remove</button></td>
 				</tr>
 			</table>
-		</div>
-	</div>
-
-	<div class="container-fluid">
-		<div class="text-center">
-			<button type="submit" class="btn btn-primary button-style button-margin">Save Recipe</button>
-			<button type="button" ng-click="editing = !editing" class="btn btn-primary button-style button-margin">Cancel</button>
 		</div>
 	</div>
 

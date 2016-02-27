@@ -21,7 +21,7 @@ public class SeleniumTest {
 
 	@Before
 	public void setUp() {
-		System.setProperty("webdriver.chrome.driver", "C:/tools/chromedriver.exe/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:/tools/chromedriver.exe");
 		driver = new ChromeDriver();
 	}
 	
@@ -41,7 +41,7 @@ public class SeleniumTest {
 	@Test
 	public void testBakedGoodsRedirection() throws InterruptedException {
 		driver.get(testLocation);
-		driver.findElement(By.xpath("/html/body/button[2]")).click();
+		driver.findElement(By.xpath("/html/body/header/ul/li[3]/a")).click();
 		Thread.sleep(1000);
 		String url = driver.getCurrentUrl();
 		assertEquals("http://localhost:8080/#/bakedGoodHome", url);
@@ -53,7 +53,7 @@ public class SeleniumTest {
 	@Test
 	public void testIngredientsRedirection() throws InterruptedException {
 		driver.get(testLocation);
-		driver.findElement(By.xpath("/html/body/button[3]")).click();
+		driver.findElement(By.xpath("/html/body/header/ul/li[4]/a")).click();
 		Thread.sleep(1000);
 		String url = driver.getCurrentUrl();
 		assertEquals("http://localhost:8080/#/ingredientHome", url);
@@ -65,7 +65,7 @@ public class SeleniumTest {
 	@Test
 	public void testRecipeAddPageLocation() throws InterruptedException {
 		driver.get(testLocation);
-		driver.findElement(By.xpath("html/body/ui-view/button")).click();
+		driver.findElement(By.xpath("/html/body/ui-view/button")).click();
 		Thread.sleep(1000);
 		String url = driver.getCurrentUrl();
 		assertEquals("http://localhost:8080/#/newRecipe", url);
@@ -77,7 +77,7 @@ public class SeleniumTest {
 	@Test
 	public void testBakedGoodsAddNewRedirect() throws InterruptedException {
 		driver.get(testLocation);
-		driver.findElement(By.xpath("/html/body/button[2]")).click();
+		driver.findElement(By.xpath("/html/body/header/ul/li[3]/a")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("/html/body/ui-view/button")).click();
 		Thread.sleep(1000);
@@ -91,7 +91,7 @@ public class SeleniumTest {
 	@Test
 	public void testIngredientsAddNewRedirect() throws InterruptedException {
 		driver.get(testLocation);
-		driver.findElement(By.xpath("/html/body/button[3]")).click();
+		driver.findElement(By.xpath("/html/body/header/ul/li[4]/a")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("/html/body/ui-view/button")).click();
 		Thread.sleep(1000);
@@ -106,7 +106,7 @@ public class SeleniumTest {
 	@Test
 	public void testRecipeEditRedirection() throws InterruptedException {
 		driver.get(testLocation);
-		driver.findElement(By.xpath("/html/body/ui-view/div[1]/a")).click();
+		driver.findElement(By.xpath("/html/body/ui-view/div/div/a")).click();
 		Thread.sleep(1000);
 		String url = driver.getCurrentUrl();
 		assertEquals("http://localhost:8080/#/recipeDetail", url);
@@ -117,9 +117,9 @@ public class SeleniumTest {
 	@Test
 	public void testBakedGoodsEditRedirection() throws InterruptedException {
 		driver.get(testLocation);
-		driver.findElement(By.xpath("/html/body/button[2]")).click();
+		driver.findElement(By.xpath("/html/body/header/ul/li[3]/a")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/ui-view/div[1]/a")).click();
+		driver.findElement(By.xpath("/html/body/ui-view/div/div/a")).click();
 		Thread.sleep(1000);
 		String url = driver.getCurrentUrl();
 		assertEquals("http://localhost:8080/#/bakedGoodDetail", url);
@@ -131,9 +131,9 @@ public class SeleniumTest {
 	@Test
 	public void testIngredientsEditRedirection() throws InterruptedException {
 		driver.get(testLocation);
-		driver.findElement(By.xpath("/html/body/button[3]")).click();
+		driver.findElement(By.xpath("/html/body/header/ul/li[4]/a")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/ui-view/div[1]/a")).click();
+		driver.findElement(By.xpath("/html/body/ui-view/div[1]/div/a")).click();
 		Thread.sleep(1000);
 		String url = driver.getCurrentUrl();
 		assertEquals("http://localhost:8080/#/ingredientDetail", url);
@@ -147,7 +147,7 @@ public class SeleniumTest {
 		
 		//Add function
 		driver.get(testLocation);
-		driver.findElement(By.xpath("/html/body/button[3]")).click();
+		driver.findElement(By.xpath("/html/body/header/ul/li[4]/a")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("/html/body/ui-view/button")).click();
 		Thread.sleep(1000);
@@ -157,13 +157,13 @@ public class SeleniumTest {
 		costElement.sendKeys("2");
 		WebElement measureElement = driver.findElement(By.id("ingredientMeasure"));
 		measureElement.sendKeys("2");
-		driver.findElement(By.xpath("/html/body/ui-view/form/button[1]")).click();
+		driver.findElement(By.xpath("/html/body/ui-view/form/div/div/button[1]")).click();
 		Thread.sleep(1000);
 		
 		//Edit function
 		driver.findElement(By.linkText("test")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/ui-view/button[1]")).click();
+		driver.findElement(By.xpath("/html/body/ui-view/div/div/button[1]")).click();
 		Thread.sleep(1000);
 		WebElement nameEdit = driver.findElement(By.id("ingredientName"));
 		nameEdit.sendKeys("2");
@@ -171,7 +171,7 @@ public class SeleniumTest {
 		costEdit.sendKeys("2");
 		WebElement measureEdit = driver.findElement(By.id("ingredientMeasure"));
 		measureEdit.sendKeys("2");
-		driver.findElement(By.xpath("/html/body/ui-view/form/button[1]")).click();
+		driver.findElement(By.xpath("/html/body/ui-view/form/div/div/button[1]")).click();
 		Thread.sleep(1000);
 		
 	}
@@ -184,7 +184,7 @@ public class SeleniumTest {
 		
 		//Add function
 		driver.get(testLocation);
-		driver.findElement(By.xpath("/html/body/button[2]")).click();
+		driver.findElement(By.xpath("/html/body/header/ul/li[3]/a")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("/html/body/ui-view/button")).click();
 		Thread.sleep(1000);
@@ -193,25 +193,25 @@ public class SeleniumTest {
 		WebElement costElement = driver.findElement(By.id("bakedGoodCost"));
 		costElement.sendKeys("2");
 		new Select(driver.findElement(By.name("bakedGoodVendor"))).selectByVisibleText("Hinkleman Bagels");
-		new Select(driver.findElement(By.name("bakedGoodAllergen"))).selectByVisibleText("None");
-		new Select(driver.findElement(By.name("bakedGoodCategory"))).selectByVisibleText("Cookie");
-		driver.findElement(By.xpath("/html/body/ui-view/form/button[1]")).click();
+		new Select(driver.findElement(By.name("bakedGoodAllergen"))).selectByVisibleText("Peanuts");
+		new Select(driver.findElement(By.name("bakedGoodCategory"))).selectByVisibleText("Bagels");
+		driver.findElement(By.xpath("/html/body/ui-view/form/div/div/button[1]")).click();
 		Thread.sleep(1000);
 		
 		//Edit function
 		driver.findElement(By.linkText("test")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/ui-view/button[1]")).click();
+		driver.findElement(By.xpath("/html/body/ui-view/div/div/button[1]")).click();
 		Thread.sleep(1000);
 		WebElement nameEdit = driver.findElement(By.id("bakedGoodName"));
 		nameEdit.sendKeys("2");
-		driver.findElement(By.xpath("/html/body/ui-view/form/button[1]")).click();
+		driver.findElement(By.xpath("/html/body/ui-view/form/div/div/button[1]")).click();
 		Thread.sleep(1000);
 		
 		//Delete function
 		driver.findElement(By.linkText("test2")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/ui-view/button[3]")).click();
+		driver.findElement(By.xpath("/html/body/ui-view/div/div/button[2]")).click();
 		Thread.sleep(2000);
 		String url = driver.getCurrentUrl();
 		assertEquals("http://localhost:8080/#/bakedGoodHome", url);
@@ -232,24 +232,24 @@ public class SeleniumTest {
 		WebElement costElement = driver.findElement(By.id("recipeInstructions"));
 		costElement.sendKeys("testable");
 		new Select(driver.findElement(By.name("ingredients"))).selectByVisibleText("Small Milk");
-		driver.findElement(By.xpath("/html/body/ui-view/form/span[4]/button")).click();
-		driver.findElement(By.xpath("/html/body/ui-view/form/button[1]")).click();
-		Thread.sleep(1000);
+		driver.findElement(By.xpath("/html/body/ui-view/form/div[3]/div[1]/button")).click();
+		driver.findElement(By.xpath("/html/body/ui-view/form/div[1]/div/button[1]")).click();
+		Thread.sleep(2000);
 		
 		//Edit function
 		driver.findElement(By.linkText("test")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/ui-view/button[1]")).click();
+		driver.findElement(By.xpath("/html/body/ui-view/div/div/button[1]")).click();
 		Thread.sleep(1000);
 		WebElement nameEdit = driver.findElement(By.id("recipeName"));
 		nameEdit.sendKeys("2");
-		driver.findElement(By.xpath("/html/body/ui-view/form/button[1]")).click();
+		driver.findElement(By.xpath("/html/body/ui-view/form/div[1]/div/button[1]")).click();
 		Thread.sleep(1000);
 		
 		//Delete function
 		driver.findElement(By.linkText("test2")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/ui-view/button[3]")).click();
+		driver.findElement(By.xpath("/html/body/ui-view/div/div/button[3]")).click();
 		Thread.sleep(2000);
 		String url = driver.getCurrentUrl();
 		assertEquals("http://localhost:8080/#/recipeHome", url);
