@@ -8,7 +8,7 @@
 	<div class="row container-fluid">
 	  <div class="col-lg-4">
 	  	<label for="recipeName">Name: </label>
-		<input id="recipeName" class="form-control recipe-input-width" name="recipeName" type="text" ng-model="recipeData.name"/ required>
+		<input id="recipeName" class="form-control recipe-input-width text-center" name="recipeName" type="text" ng-model="recipeData.name"/ required>
 		<span ng-show="recipeForm.recipeName.$error.required && recipeForm.recipeName.$dirty">Name is required.</span></div>
 	  <div class="col-lg-8">
 	  	<label for="recipeInstructions">Instructions: </label>
@@ -20,7 +20,7 @@
 	<div class="row container-fluid">
 		<div class="col-lg-4">
 			<label for="ingredients">Ingredients:</label>
-			<select name="ingredients" class="form-control recipe-input-width" ng-model="recipeData.ingredient" ng-options="ingredient.name for ingredient in ingredients | orderBy:'name' ">
+			<select name="ingredients" class="form-control recipe-input-width text-center" ng-model="recipeData.ingredient" ng-options="ingredient.name for ingredient in ingredients | orderBy:'name' ">
 			    <option value="">Select Ingredient</option>
 			</select>
 			<span ng-show="ingredientError">No Ingredients added.</span>

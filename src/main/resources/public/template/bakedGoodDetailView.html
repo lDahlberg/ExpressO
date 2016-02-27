@@ -10,7 +10,7 @@
 
 <form name="bakedGoodForm" class="text-center" ng-show="editing">
 <label for="bakedGoodName">Name: </label>
-<input id="bakedGoodName" class="form-control text-center" name="bakedGoodName" type="text" ng-model="bakedGood.name" required/>
+<input id="bakedGoodName" class="form-control text-center nameWidth" name="bakedGoodName" type="text" ng-model="bakedGood.name" required/>
 <p ng-show="bakedGoodForm.bakedGoodName.$error.required && bakedGoodForm.bakedGoodName.$dirty">Name is required.</p>
 
 <label for="bakedGoodCost">Cost: </label>
@@ -18,17 +18,17 @@
 <p ng-show="bakedGoodForm.bakedGoodCost.$error.pattern && bakedGoodForm.bakedGoodCost.$dirty">Must be a number</p>
 <p ng-show="bakedGoodForm.bakedGoodCost.$error.required && bakedGoodForm.bakedGoodCost.$dirty">Cost is required.</p>
 
-<select class="form-control" name="bakedGoodVendor" ng-model="bakedGood.vendor" ng-options="vendor.name for vendor in vendors | orderBy:'name'" required>
+<select class="form-control text-center" name="bakedGoodVendor" ng-model="bakedGood.vendor" ng-options="vendor.name for vendor in vendors | orderBy:'name'" required>
     <option>Select Vendor</option>
 </select>
 <span ng-show="bakedGoodForm.bakedGoodVendor.$error.required && bakedGoodForm.bakedGoodVendor.$dirty">Vendor is required.</span>
 
-<select class="form-control"name="bakedGoodAllergen" ng-model="bakedGood.allergen" ng-options="allergen.name for allergen in allergens | orderBy:'name'" required>
+<select class="form-control text-center" name="bakedGoodAllergen" ng-model="bakedGood.allergen" ng-options="allergen.name for allergen in allergens | orderBy:'name'" required>
     <option value="">Select Allergen</option>
 </select>
 <span ng-show="bakedGoodForm.bakedGoodAllergen.$error.required && bakedGoodForm.bakedGoodAllergen.$dirty">Allergen is required.</span>
 
-<select class="form-control" name="bakedGoodCategory" ng-model="bakedGood.category" ng-options="category.name for category in categories | orderBy:'name'" required>
+<select class="form-control text-center" name="bakedGoodCategory" ng-model="bakedGood.category" ng-options="category.name for category in categories | orderBy:'name'" required>
     <option value="">Select Category</option>
 </select>
 <span ng-show="bakedGoodForm.bakedGoodCategory.$error.required && bakedGoodForm.bakedGoodCategory.$dirty">Category is required.</span>

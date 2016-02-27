@@ -17,6 +17,17 @@ h1 {
 	margin-top: 2%;
 }
 
+a {
+	color: #004d00;
+}
+
+table {
+	margin-left: 10%;
+	margin-top: 15px;
+}
+
+/* Header and Footer */
+
 header, footer {
 	background-color: #fffff0;
 }
@@ -26,7 +37,6 @@ footer {
    	bottom:0px;
    	height: 40px;
 }
-
 
 .page-wrap {
 	max-width:100%;
@@ -41,28 +51,7 @@ footer {
 .site-footer, .page-wrap:after {
   height: 40px; 
 }
-.full-width {
-	max-width: 100%;
-}
 
-.form-control, label {
-	padding: 0;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 15%;
-}
-
-table {
-	margin-left: 10%;
-	margin-top: 15px;
-}
-
-a {
-	color: #004d00;
-}
-/* Navbar CSS */
 ul {
     list-style-type: none;
     margin: 0;
@@ -85,7 +74,6 @@ li a {
     padding-right: 25px;  
 }
 
-/* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: #111;
 }
@@ -99,6 +87,24 @@ li a:hover {
     font-size: 20px;
 }
 
+/* Form CSS */
+
+.full-width {
+	max-width: 100%;
+}
+
+.form-control, label {
+	padding: 0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 15%;
+}
+
+
+/* div CSS */
+
  .outer {
    width: 100%;
    margin: 0 auto;  
@@ -107,6 +113,7 @@ li a:hover {
 	float: right;
 }
 
+/* Home pages CSS */
 .border-line {
  	border-bottom: 1px solid black;
  	margin-right: 40%;
@@ -131,6 +138,8 @@ li a:hover {
  	border-bottom: 1px solid black;
 }
 
+/* Buttons CSS */
+
 .button-style {
 	margin-top: 50px;
 	margin-bottom: 10px;	
@@ -145,9 +154,13 @@ li a:hover {
 	margin-right: 15px;
 }
 
-#ingredientName {
+/* Width for name input */
+
+.nameWidth {
 	width: 40%;
 }
+
+/* Recipe CSS */
 
 .recipe-input-width {
 	width: 80%;

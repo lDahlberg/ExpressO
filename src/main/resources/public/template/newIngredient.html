@@ -5,15 +5,15 @@
 <form name="ingredientForm" class="text-center" ng-submit="submitIngredient(ingredientData)">
 
 	<label for="ingredientName">Name: </label>
-	<input id="ingredientName" class="form-control" name="ingredientName" type="text" ng-model="ingredientData.name" required/>
+	<input id="ingredientName" class="form-control nameWidth text-center" name="ingredientName" type="text" ng-model="ingredientData.name" required/>
 	<p ng-show="ingredientForm.ingredientName.$error.required && ingredientForm.ingredientName.$dirty">Ingredient Name is required.</p>
 	 
 	<label for="ingredientCost">Cost: </label>
-	<input id="ingredientCost" class="form-control" name="ingredientCost" type="number" ng-model="ingredientData.cost" step="0.01" min ="0.01" required/>
+	<input id="ingredientCost" class="form-control text-center" name="ingredientCost" type="number" ng-model="ingredientData.cost" step="0.01" min ="0.01" required/>
 	<p ng-show="ingredientForm.ingredientCost.$error.required && ingredientForm.ingredientCost.$dirty">Cost is required.</p>
 	
 	<label for="ingredientMeasure">Measurement (in oz): </label>
-	<input id="ingredientMeasure"  class="form-control" name="ingredientMeasure" type="number" ng-model="ingredientData.measure" required/>
+	<input id="ingredientMeasure"  class="form-control text-center" name="ingredientMeasure" type="number" ng-model="ingredientData.measure" required/>
 	<p ng-show="ingredientForm.ingredientMeasure.$error.required && ingredientForm.ingredientMeasure.$dirty">Measurement is required and must be a number.</p>
 	
 	<div class="container-fluid">

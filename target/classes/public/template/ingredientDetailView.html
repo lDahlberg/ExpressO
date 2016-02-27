@@ -9,7 +9,7 @@
 <form name="ingredientForm" class="text-center" ng-show="editing" ng-submit="saveIngredient(ingredient)">
 
 	<label for="ingredientName">Name: </label>
-	<input id="ingredientName" class="form-control text-center" name="ingredientName" type="text" ng-model="ingredient.name" required/>
+	<input id="ingredientName" class="form-control text-center nameWidth" name="ingredientName" type="text" ng-model="ingredient.name" required/>
 	<p ng-show="ingredientForm.ingredientName.$error.required && ingredientForm.ingredientName.$dirty">Ingredient Name is required.</p>
 	
 	<label for="ingredientCost">Cost: </label>
