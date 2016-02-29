@@ -208,7 +208,7 @@ public class SeleniumTest {
 		costElement.sendKeys("2");
 		new Select(driver.findElement(By.name("bakedGoodVendor"))).selectByVisibleText("Hinkleman Bagels");
 		new Select(driver.findElement(By.name("bakedGoodAllergen"))).selectByVisibleText("Peanuts");
-		new Select(driver.findElement(By.name("bakedGoodCategory"))).selectByVisibleText("Bagels");
+		new Select(driver.findElement(By.name("bakedGoodCategory"))).selectByVisibleText("Bagel");
 		driver.findElement(By.xpath(addNewBakedGoodButton)).click();
 		Thread.sleep(1000);
 		
